@@ -123,26 +123,10 @@ public class CommandsPack {
 
     private static void type() {
         Scanner console = new Scanner(System.in);
-//        String inputC;
-//        String path;
-
-//        do {
-//            System.out.print("~ ");
-//            inputC = console.nextLine();
-//            path = mapFind(inputC);
-//            if (path == null){
-//                System.out.println("Неверная команда. Для справки введите 'help'.");
-//            } else {
-//                map.get(path).go();
-//            }
-//        } while (!inputC.equals("exit"));
         try {
             System.out.print("~ ");
-            String inputC = console.nextLine();
-            String path = mapFind(inputC);
-            map.get(path).go();
+            map.get(mapFind(console.nextLine())).go();
         } catch (Exception e) {
-
             System.out.println("Неверная команда. Введите 'help' для справки.");
         }
         finally {
