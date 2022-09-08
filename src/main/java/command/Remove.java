@@ -15,7 +15,7 @@ public class Remove extends Command {
 
     @Override
     public void go() {
-        putPeopleDataUp(getPeople_data().stream().filter((p) -> ifPerson(p,inputCommand)).findFirst().get().getId());
+        putPeopleDataUp(getPeople_data().stream().filter((p) -> ifPerson(p,inputID.toString())|ifPerson(p,inputCommand)).findFirst().get().getId());
         getPeople_data().pop();
         sortPeopleData();
 //        if (this.findIn(CommandsPack.inputCommand)){

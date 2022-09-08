@@ -114,6 +114,7 @@ public class CommandsPack {
                 return setOfCommands[0];
             }
 
+        } catch (ArrayIndexOutOfBoundsException ignored) {
         }
 
 
@@ -122,31 +123,31 @@ public class CommandsPack {
 
     private static void type() {
         Scanner console = new Scanner(System.in);
-        String inputC;
-        String path;
+//        String inputC;
+//        String path;
 
-        do {
-            System.out.print("~ ");
-            inputC = console.nextLine();
-            path = mapFind(inputC);
-            if (path == null){
-                System.out.println("Неверная команда. Для справки введите 'help'.");
-            } else {
-                map.get(path).go();
-            }
-        } while (!inputC.equals("exit"));
-//        try{
-//           String inputC = console.nextLine();
-//           String path = mapFind(inputC);
-//            if (path == null) {
-//                throw new Exception("Неверная команда. Введите 'help' для справки.");
+//        do {
+//            System.out.print("~ ");
+//            inputC = console.nextLine();
+//            path = mapFind(inputC);
+//            if (path == null){
+//                System.out.println("Неверная команда. Для справки введите 'help'.");
+//            } else {
+//                map.get(path).go();
 //            }
-//            map.get(path).go();
-//        }   catch (Exception e){
-//            System.err.println(e.getMessage());
-//        }   finally {
-//            type();
-//        }
+//        } while (!inputC.equals("exit"));
+        try {
+            System.out.print("~ ");
+            String inputC = console.nextLine();
+            String path = mapFind(inputC);
+            map.get(path).go();
+        } catch (Exception e) {
+
+            System.out.println("Неверная команда. Введите 'help' для справки.");
+        }
+        finally {
+            type();
+        }
     }
 
     private static void setCommand(Command command) {
