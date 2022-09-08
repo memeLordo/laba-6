@@ -1,7 +1,7 @@
 package command;
 
-import parameter.Person;
 import comparator.PersonIdComparator;
+import parameter.Person;
 import xml_processor.xmlReader;
 
 import java.util.*;
@@ -101,30 +101,23 @@ public class CommandsPack {
 //        return command;
 //    }
     public static String mapFind(String textLine) {
-        String command = null;
-        String[] setOfCommands = textLine.split(" ");
-        boolean flag = false;
-        for (String check : setOfCommands) {
-            for (Map.Entry<String, Command> set : CommandsPack.map.entrySet())
-                command = check.equals(set.getKey()) ? check : command;
-            if (flag){
-                try {
-                    inputID = Integer.parseInt(check);
-                } catch (NumberFormatException e) {
-                    try {
-                        inputCommand = check;
-                    } catch (NullPointerException e1) {
-                        return command;
-                    }
 
-                }
+        String[] setOfCommands = textLine.split(" ");
+
+
+        try {
+            inputID = Integer.parseInt(setOfCommands[1]);
+        } catch (NumberFormatException e) {
+            try {
+                inputCommand = setOfCommands[1];
+            } catch (NullPointerException e1) {
+                return setOfCommands[0];
             }
-            for (String s : defCommandSet) flag = Objects.equals(command, s) || flag;
-//            command = Objects.equals(set.getKey(), textLine) ? textLine : command;
-//            command = textLine.contains(set.getKey()) ? set.getKey() : command;
-//            System.out.println(set.getKey() + " " + textLine + " ^^ " + command);
+
         }
-        return command;
+
+
+        return setOfCommands[0];
     }
 
     private static void type() {
