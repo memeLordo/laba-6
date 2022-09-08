@@ -5,6 +5,8 @@ import parameter.Person;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
+import static command.CommandsPack.getPeople_data;
+
 public class Show extends Command {
     public Show() {
         super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении",false);
@@ -30,8 +32,8 @@ public class Show extends Command {
     @Override
     public void go() {
         if (CommandsPack.isPeopleDataEmpty())
-            for (Person stack : CommandsPack.getPeople_data())
-                showPerson(stack);
+            getPeople_data().forEach(Show::showPerson);
+
     }
 }
 
