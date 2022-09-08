@@ -1,4 +1,5 @@
 package command;
+import static command.CommandsPack.getPeople_data;
 import static command.CommandsPack.inputCommand;
 
 public class Contains extends Command {
@@ -8,6 +9,12 @@ public class Contains extends Command {
     }
     @Override
     public void go() {
-        this.findIn(inputCommand);
+        try {
+            getPeople_data().stream().filter(inputCommand::equals).forEach(Show::showPerson);
+//            this.findIn(inputCommand);
+        }
+        catch (NullPointerException e){
+            System.out.println(e.getMessage());
+        }
     }
 }

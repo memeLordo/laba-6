@@ -32,7 +32,6 @@ public abstract class Command {
         boolean trigger = true;
         for (Person p : getPeople_data()) {
             if (ifPerson(p, line)){
-//                if (this.getDefault()) showPerson(p);
                 trigger = false;
             }
         }
