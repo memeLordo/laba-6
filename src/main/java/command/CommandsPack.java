@@ -2,7 +2,7 @@ package command;
 
 import parameter.Person;
 import comparator.PersonIdComparator;
-import xmlProcessor.xmlReader;
+import xml_processor.xmlReader;
 
 import java.util.*;
 

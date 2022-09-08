@@ -1,4 +1,4 @@
-package xmlProcessor;
+package xml_processor;
 
 import exception.EmptyLineException;
 import command.Command;

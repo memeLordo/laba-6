@@ -1,7 +1,7 @@
 package command;
 
 
-import xmlProcessor.xmlWriter;
+import xml_processor.xmlWriter;
 
 import static command.CommandsPack.sortPeopleData;
 

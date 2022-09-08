@@ -1,4 +1,4 @@
-package xmlProcessor;
+package xml_processor;
 import parameter.Person;
 import command.InfoData;
 import java.text.DecimalFormat;

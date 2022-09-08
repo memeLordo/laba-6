@@ -2,6 +2,9 @@ package command;
 
 import parameter.Person;
 
+import java.util.stream.Collectors;
+
+import static command.CommandsPack.getPeople_data;
 import static parameter.Person.PersonSet;
 import static command.CommandsPack.*;
 
@@ -14,7 +17,13 @@ public class Add extends Command {
 
     @Override
     public void go() {
+
         if (inputCommand.equals("def")){
+//            Person bebra = new Person();
+//            getPeople_data().stream().map(bebra -> getPeople_data().push(b));
+//
+
+
             Person bebra = new Person();
             getPeople_data().push(bebra);
             sortPeopleData();
