@@ -70,24 +70,6 @@ public class CommandsPack {
         people_data = s2;
     }
 
-    //    public static String mapFind(String textLine) {
-//        String command = null;
-//        String[] setOfCommands = textLine.split(" ");
-//        for (int i = 0; i < setOfCommands.length; i++) {
-//            String check = setOfCommands[i];
-//            for (Map.Entry<String, Command> set : CommandsPack.map.entrySet()) {
-//                command = check.equals(set.getKey()) ? check : command;
-//                isDefaultCommand = check.equals("def") || isDefaultCommand;
-//            }
-//            try {
-//                inputID = Integer.parseInt(setOfCommands[i + 1]);
-//                inputCommand = setOfCommands[i + 1];
-//            } catch (ArrayIndexOutOfBoundsException ignored) {
-//                return command;
-//            }
-//        }
-//        return command;
-//    }
     public static String mapFind(String textLine) {
 
         String[] setOfCommands = textLine.split(" ");

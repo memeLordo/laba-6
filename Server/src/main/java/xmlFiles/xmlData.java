@@ -34,9 +34,11 @@ public abstract class xmlData {
             System.out.println(e.getMessage());
             setPath();
         }
-        return directory + "/" + path + ".xml"; //xml-files with directory
+        path = directory + "/" + path+ ".xml";
+        return path; //xml-files with directory
 //        return path + ".xml"; //xml-files without directory
     }
+
 
     static void write(String text) {
         try (Writer translator = new OutputStreamWriter(new FileOutputStream(path), UTF_8)) {

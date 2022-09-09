@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set>
+	<person>
+		<id>549222965</id>
+		<name>Даниил Никитин</name>
+		<coordinates>173° . 140°</coordinates>
+		<creation_date>Fri Sep 09 16:13:03 MSK 2022</creation_date>
+		<height>178</height>
+		<weight>72.87</weight>
+		<birthday>1979-02-08</birthday>
+		<eyeColor>ORANGE</eyeColor>
+		<location>143:1:0.04 Место: США</location>
+	</person>
+</set>
