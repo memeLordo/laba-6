@@ -23,6 +23,7 @@ public class CommandsPack {
         setCommand(new Exit());
         setCommand(new Head());
         setCommand(new Save());
+        setCommand(new Load());
         setCommand(new ExecuteFile());
         setCommand(new UpdateID());
         setCommand(new Remove());
@@ -53,19 +54,6 @@ public class CommandsPack {
     }
 
     public static void sortPeopleData() {
-//        Stack<Person> s1 = people_data;
-//        Stack<Person> s2 = new Stack<>();
-//        while (!s1.isEmpty()) {
-//            Person temp = s1.pop();
-//
-//
-//            while (!s2.isEmpty() && s2.peek().getId() <= temp.getId()) {
-//                if (s2.peek().getId().equals(temp.getId())) temp.setId(temp.getId() + 1);//если одинаковые id
-//                s1.push(s2.pop());
-//            }
-//            s2.push(temp);
-//        }
-//        people_data = s2;
         people_data.sort(new PersonIdComparator());
     }
 
