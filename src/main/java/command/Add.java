@@ -19,20 +19,15 @@ public class Add extends Command {
     public void go() {
 
         if (inputCommand.equals("def")){
-//            Person bebra = new Person();
-//            getPeople_data().stream().map(bebra -> getPeople_data().push(b));
-//
-
-
             Person bebra = new Person();
             getPeople_data().push(bebra);
             sortPeopleData();
-            System.out.println("Добавлен новый стандартный пользователь");
+            System.out.println("New default user added.");
         } else {
             Person bebraPerson = PersonSet();
             getPeople_data().push(bebraPerson);
             sortPeopleData();
-            System.out.println("Добавлен новый пользователь");
+            System.out.println("New user added.");
         }
     }
 

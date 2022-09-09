@@ -14,7 +14,7 @@ public class RemoveID extends Command {
             putPeopleDataUp(inputID);
             getPeople_data().pop();
             sortPeopleData();
-            System.out.println("Пользователь удалён.");
+            System.out.println("RemoveID completed.");
         }
     }
 }

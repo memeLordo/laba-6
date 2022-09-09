@@ -104,32 +104,31 @@ public class CommandsPack {
 
         String[] setOfCommands = textLine.split(" ");
 
-
         try {
-            inputID = Integer.parseInt(setOfCommands[1]);
-        } catch (NumberFormatException e) {
-            try {
-                inputCommand = setOfCommands[1];
-            } catch (NullPointerException e1) {
-                return setOfCommands[0];
-            }
+            inputCommand = setOfCommands[1];
+            inputID = Integer.parseInt(inputCommand);
 
-        } catch (ArrayIndexOutOfBoundsException ignored) {
+        } catch (NullPointerException e1) {
+            e1.printStackTrace();
         }
-
-
-        return setOfCommands[0];
+        //}
+        catch (ArrayIndexOutOfBoundsException | NumberFormatException ignored) {
+        } finally {
+            return setOfCommands[0];
+        }
     }
 
     private static void type() {
         Scanner console = new Scanner(System.in);
         try {
             System.out.print("~ ");
-            map.get(mapFind(console.nextLine())).go();
+            String command = mapFind(console.nextLine());
+            map.get(command).go();
         } catch (Exception e) {
+            //e.printStackTrace();
             System.out.println("Неверная команда. Введите 'help' для справки.");
-        }
-        finally {
+        } finally {
+            clearInputCommand();
             type();
         }
     }
@@ -137,6 +136,10 @@ public class CommandsPack {
     private static void setCommand(Command command) {
         map.put(command.getName(), command);
         if (command.getDefault()) defCommandSet.add(command.getName());
+    }
 
+    private static void clearInputCommand() {
+        inputCommand = "";
+        inputID = 0;
     }
 }
