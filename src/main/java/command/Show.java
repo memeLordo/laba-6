@@ -33,7 +33,6 @@ public class Show extends Command {
     public void go() {
         if (CommandsPack.isPeopleDataEmpty())
             getPeople_data().forEach(Show::showPerson);
-
     }
 }
 

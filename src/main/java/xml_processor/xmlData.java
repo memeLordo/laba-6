@@ -18,7 +18,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 public abstract class xmlData {
 
-    protected static String path = "example.xml";
+    protected static String path = "autosave.xml";
     protected static String directory = "xmlFilesPack";
 
 
@@ -31,8 +31,8 @@ public abstract class xmlData {
             System.out.println(e.getMessage());
             setPath();
         }
-//        return directory + "/" + path + ".xml";
-        return path + ".xml";
+        return directory + "/" + path + ".xml"; //xml-files with directory
+//        return path + ".xml"; //xml-files without directory
     }
 
     static void write(String text) {
@@ -46,26 +46,23 @@ public abstract class xmlData {
     static String read() {
         StringBuilder line = new StringBuilder();
         try {
-//            checkDirectory(directory);
-            path = setPath();
+            checkDirectory(directory);
+            path = directory + "/" + path;
             Scanner fr = new Scanner(Paths.get(path));
-
             do {
                 line.append(fr.nextLine()).append("\n");
             } while (fr.hasNext());
-        } catch (NoSuchFileException e1) {
-
-            System.out.println("Такого файла не существует. Хотите создать файл? (y/n)");
-            try {
-                String choice = new Scanner(System.in).next("[yn]");
-                if ("y".equals(choice)){
+        }
+        catch (NoSuchFileException e1) {
+//            System.out.println("Такого файла не существует. Хотите создать файл? (y/n)");
+//            try {
+//                String choice = new Scanner(System.in).next("[yn]");
+//                if ("y".equals(choice)){
                     Command.CreateFile(path);
-                }
-            } catch (NoSuchElementException ignored) {
-            }
-
-
-        } catch (IOException e) {
+//                }
+//            } catch (NoSuchElementException ignored) {}
+        }
+        catch (IOException e) {
             e.printStackTrace();
         }
         return line.toString();

@@ -20,26 +20,5 @@ public class Remove extends Command {
         getPeople_data().pop();
         System.out.println("Remove completed.");
         sortPeopleData();
-
-//        if (this.findIn(CommandsPack.inputCommand)){
-//            putPeopleDataUp(currentPerson.getId());
-//            getPeople_data().pop();
-//            sortPeopleData();
-//            System.out.println("Пользователь удалён.");
-//        }
-//    }
-//
-//    @Override
-//    public boolean findIn(Object obj) {
-//        String line = obj.toString();
-//        boolean trigger = true;
-//        for (Person p : getPeople_data()) {
-//            if (ifPerson(p, line)){
-//                currentPerson = p;
-//                trigger = false;
-//            }
-//        }
-//        if (trigger) System.err.println("Нет такого элемента.");
-//        return !trigger;
     }
 }

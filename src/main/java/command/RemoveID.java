@@ -5,16 +5,14 @@ import static command.CommandsPack.*;
 public class RemoveID extends Command {
 
     public RemoveID() {
-        super("removeid", "удалить элемент из коллекции по его id",true);
+        super("removeid", "удалить элемент из коллекции по его id", true);
     }
 
     @Override
-    public void go() {
-        if(this.findIn(inputID)){
-            putPeopleDataUp(inputID);
-            getPeople_data().pop();
-            sortPeopleData();
-            System.out.println("RemoveID completed.");
-        }
+    public void go() throws NullPointerException {
+        putPeopleDataUp(getPeople_data().stream().filter((p) -> ifPerson(p, inputCommand)).findFirst().get().getId());
+        getPeople_data().pop();
+        sortPeopleData();
+        System.out.println("RemoveID completed.");
     }
 }
