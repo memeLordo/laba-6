@@ -1,4 +1,4 @@
-import command.CommandsPack;
+import SetOfCommands.CommandsPack;
 
 public class Main {
 

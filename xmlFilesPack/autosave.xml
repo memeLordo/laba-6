@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set>
+	<person>
+		<id>7806673</id>
+		<name>Даниил Петров</name>
+		<coordinates>13° . 168°</coordinates>
+		<creation_date>Fri Sep 09 15:37:41 MSK 2022</creation_date>
+		<height>172</height>
+		<weight>68.04</weight>
+		<birthday>1991-08-28</birthday>
+		<eyeColor>ORANGE</eyeColor>
+		<location>24:87:0.54 Место: Великобритания</location>
+	</person>
+	<person>
+		<id>24586893</id>
+		<name>Николай Петров</name>
+		<coordinates>160° . 54°</coordinates>
+		<creation_date>Fri Sep 09 15:37:39 MSK 2022</creation_date>
+		<height>159</height>
+		<weight>50.56</weight>
+		<birthday>1984-08-28</birthday>
+		<eyeColor>GREEN</eyeColor>
+		<location>-178:173:0.59 Место: Албания</location>
+	</person>
+	<person>
+		<id>686306819</id>
+		<name>Даниил Петров</name>
+		<coordinates>34° . 176°</coordinates>
+		<creation_date>Fri Sep 09 15:37:45 MSK 2022</creation_date>
+		<height>199</height>
+		<weight>99</weight>
+		<birthday>1989-02-18</birthday>
+		<eyeColor>GREEN</eyeColor>
+		<location>29:109:0.2 Место: США</location>
+	</person>
+</set>
