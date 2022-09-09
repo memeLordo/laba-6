@@ -1,7 +1,7 @@
 package xml_processor;
 
-import exception.EmptyLineException;
 import command.Command;
+import exception.EmptyLineException;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,6 +21,9 @@ public abstract class xmlData {
     protected static String path = "autosave.xml";
     protected static String directory = "xmlFilesPack";
 
+    public static String getPath() {
+        return path;
+    }
 
     public static String setPath() {
         try {
@@ -52,18 +55,19 @@ public abstract class xmlData {
             do {
                 line.append(fr.nextLine()).append("\n");
             } while (fr.hasNext());
-        }
-        catch (NoSuchFileException e1) {
+        } catch (NoSuchFileException e1) {
 //            System.out.println("Такого файла не существует. Хотите создать файл? (y/n)");
 //            try {
 //                String choice = new Scanner(System.in).next("[yn]");
 //                if ("y".equals(choice)){
-                    Command.CreateFile(path);
+            Command.CreateFile(path);
 //                }
-//            } catch (NoSuchElementException ignored) {}
-        }
-        catch (IOException e) {
+//            }
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+        catch (ExceptionInInitializerError| NoSuchElementException ignored){
+
         }
         return line.toString();
     }

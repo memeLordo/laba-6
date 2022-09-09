@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set>
+	<person>
+		<id>511129820</id>
+		<name>Василий Сидоров</name>
+		<coordinates>62° . 67°</coordinates>
+		<creation_date>Fri Sep 09 13:49:54 MSK 2022</creation_date>
+		<height>166</height>
+		<weight>60.62</weight>
+		<birthday>1986-09-29</birthday>
+		<eyeColor>GREEN</eyeColor>
+		<location>-116:67:0.91 Место: США</location>
+	</person>
+</set>
