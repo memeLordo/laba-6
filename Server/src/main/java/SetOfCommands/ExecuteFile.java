@@ -37,11 +37,6 @@ public class ExecuteFile extends Command{
         while(console.hasNext()){
             try {
                 path= mapFind(console.nextLine());
-//                err = new ExecuteFile().getName();
-//                if(path.equals(err)){
-//                    System.err.print("Команда "+err+" не может присутствовать в файле.");
-//                    continue;
-//                }
                 getMap().get(path).go();
             }catch (Exception ignored){}
 

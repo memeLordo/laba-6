@@ -12,11 +12,6 @@ public class Head extends Command{
 
     @Override
     public void go() {
-        Person jew = null;
-        if(isPeopleDataEmpty()){
-            for (Person person: getPeople_data()) jew = person;
-            assert jew != null;
-            Show.showPerson(jew);
-        }
+        Show.showPerson(getPeople_data().firstElement());
     }
 }
