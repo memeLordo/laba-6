@@ -8,8 +8,8 @@ public class Clear extends Command {
 
     @Override
     public void go() {
-        while (!getPeople_data().empty())
-            getPeople_data().pop();
+        getPeople_data().forEach(
+                p->getPeople_data().pop());
         System.out.println("Коллекция очищена.");
     }
 
