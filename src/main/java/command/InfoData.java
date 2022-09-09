@@ -1,5 +1,7 @@
 package command;
 
+import java.util.Arrays;
+
 public class InfoData extends Command{
 
     public InfoData() {
@@ -9,9 +11,7 @@ public class InfoData extends Command{
     @Override
     public void go() {
         System.out.println("Поля:");
-        for (String x:columns) {
-            System.out.println(x);
-        }
+        Arrays.stream(columns).forEachOrdered(System.out::println);
     }
 
     public static String[] getColumns() {
