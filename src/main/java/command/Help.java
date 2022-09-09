@@ -11,12 +11,11 @@ public class Help extends Command{
 
     @Override
     public void go() {
-        for(Map.Entry<String, Command> set: getMap().entrySet()) {
-            System.out.print(set.getKey());
-            if (set.getKey().equals(new Add().getName()) | set.getKey().equals(new UpdateID().getName()))
-                System.out.print(" <element>");
-            System.out.println(" : " + set.getValue().getDescription());
-            if(set.getKey().equals(new Add().getName())) System.out.println(new Add().getName()+" def : добавить новый стандартный элемент в коллекцию");
-        }
+        getMap().entrySet().stream()
+                            .filter(p->p.getValue().getDefault())
+                .forEachOrdered(p-> System.out.println(p.getKey()+" <element>"+" : " + p.getValue().getDescription()));
+        getMap().entrySet().stream()
+                .filter(p->!p.getValue().getDefault())
+                .forEachOrdered(p-> System.out.println(p.getKey()+" : " + p.getValue().getDescription()));
     }
 }
