@@ -3,6 +3,7 @@ import parameter.Person;
 import command.InfoData;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.Stack;
 
@@ -40,7 +41,6 @@ public class xmlWriter extends xmlData {
     private static String printXML(String tag,Object value){
         return "\t\t<" + tag + ">" + value.toString() + "</" + tag+ ">\n";
     }
-
 
 
 }
