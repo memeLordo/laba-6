@@ -13,6 +13,7 @@ public class RemoveLower extends Command {
 
     @Override
     public void go() {
+        if (CommandsPack.isPeopleDataEmpty())
         if(this.findIn(inputID)){
             System.out.println(inputID);
             sortPeopleData(inputID);

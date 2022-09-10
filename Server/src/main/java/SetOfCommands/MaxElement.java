@@ -18,12 +18,7 @@ public class MaxElement extends Command {
         long maxHeight = 0;
         double maxWeight = 0;
         LocalDate maxBirth = LocalDate.ofEpochDay(0);
-//
-//
-//        getPeople_data().stream().forEachOrdered();
-//
-//
-//
+//        getPeople_data().stream().forEachOrdered(p->);
         for (Person chel : getPeople_data()) {
             maxId = chel.getId() > maxId ? chel.getId() : maxId;
             maxHeight = chel.getHeight() > maxHeight ? chel.getHeight() : maxHeight;

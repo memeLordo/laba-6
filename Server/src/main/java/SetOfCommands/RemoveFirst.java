@@ -6,7 +6,9 @@ public class RemoveFirst extends Command {
     }
     @Override
     public void go() {
-        getPeople_data().pop();
-        System.out.println("RemoveFirst completed.");
+        if (CommandsPack.isPeopleDataEmpty()){
+            getPeople_data().pop();
+            System.out.println("RemoveFirst completed.");
+        }
     }
 }

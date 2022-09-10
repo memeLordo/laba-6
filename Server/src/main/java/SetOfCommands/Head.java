@@ -12,6 +12,7 @@ public class Head extends Command{
 
     @Override
     public void go() {
-        Show.showPerson(getPeople_data().firstElement());
+        if (CommandsPack.isPeopleDataEmpty())
+            Show.showPerson(getPeople_data().firstElement());
     }
 }

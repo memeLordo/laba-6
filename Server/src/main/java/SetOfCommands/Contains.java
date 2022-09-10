@@ -1,6 +1,6 @@
 package SetOfCommands;
-import static SetOfCommands.CommandsPack.getPeople_data;
-import static SetOfCommands.CommandsPack.inputCommand;
+
+import static SetOfCommands.CommandsPack.*;
 
 public class Contains extends Command {
 
@@ -9,12 +9,7 @@ public class Contains extends Command {
     }
     @Override
     public void go() {
-        try {
+        if (CommandsPack.isPeopleDataEmpty())
             getPeople_data().stream().filter(inputCommand::equals).forEach(Show::showPerson);
-//            this.findIn(inputCommand);
-        }
-        catch (NullPointerException e){
-            System.out.println(e.getMessage());
-        }
     }
 }

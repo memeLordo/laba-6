@@ -10,10 +10,11 @@ public class Remove extends Command {
 
     @Override
     public void go() throws NullPointerException {
-
-        putPeopleDataUp(getPeople_data().stream().filter((p) -> ifPerson(p,inputCommand)).findFirst().get().getId());
-        getPeople_data().pop();
-        System.out.println("Remove completed.");
-        sortPeopleData();
+        if (CommandsPack.isPeopleDataEmpty()){
+            putPeopleDataUp(getPeople_data().stream().filter((p) -> ifPerson(p, inputCommand)).findFirst().get().getId());
+            getPeople_data().pop();
+            System.out.println("Remove completed.");
+            sortPeopleData();
+        }
     }
 }

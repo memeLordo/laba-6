@@ -10,11 +10,13 @@ public class UpdateID extends Command {
 
     @Override
     public void go() {
-        putPeopleDataUp(inputID);
-        getPeople_data().pop();
-        getPeople_data().push(PersonSet(inputID));
-        sortPeopleData();
-        System.out.println("Пользователь изменён");
+        if (CommandsPack.isPeopleDataEmpty()){
+            putPeopleDataUp(inputID);
+            getPeople_data().pop();
+            getPeople_data().push(PersonSet(inputID));
+            sortPeopleData();
+            System.out.println("Пользователь изменён");
+        }
     }
 }
 
