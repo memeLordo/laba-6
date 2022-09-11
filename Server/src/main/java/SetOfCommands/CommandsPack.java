@@ -7,6 +7,8 @@ import xmlFiles.xmlReader;
 
 import java.util.*;
 
+import static Server.ServerClass.setResponse;
+
 public class CommandsPack {
     private static final Map<String, Command> map = new HashMap<>();
     private static final List<String> defCommandSet = new LinkedList<>();
@@ -50,7 +52,7 @@ public class CommandsPack {
     }
 
     public static boolean isPeopleDataEmpty() {
-        if (people_data.empty()) System.out.println("В коллекции нет элементов.");
+        if (people_data.empty()) setResponse("В коллекции нет элементов.");
         return !people_data.empty();
     }
 

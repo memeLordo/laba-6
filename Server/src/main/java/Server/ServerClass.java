@@ -1,3 +1,5 @@
+package Server;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -6,31 +8,36 @@ import java.net.SocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 
-public class Server {
+public class ServerClass {
 
     private static final String serverName = "localhost";
     private static final int serverPort = 1234;
+    private static final InetSocketAddress serverAdd = new InetSocketAddress(serverName, serverPort);
     private static DatagramChannel channel;
     private static SocketAddress clientAddress;
-    private static final InetSocketAddress serverAdd = new InetSocketAddress(serverName, serverPort);
     private static String response;
     private static String request;
 
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void go() {
 
         //Открытие канала, который слушает на заданном адресе serverAdd
-        channel = DatagramChannel.open();
-        channel.bind(serverAdd);
 
-        while (true) {
-            getRequest();
-            sendResponse();
+        try {
+            channel = DatagramChannel.open();
+            channel.bind(serverAdd);
+            while (true) {
+                getRequest();
+                sendResponse();
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
+
     }
 
     public static void setResponse(String response) {
-        Server.response = response;
+        ServerClass.response = response;
     }
 
     private static void getRequest() throws IOException, ClassNotFoundException {

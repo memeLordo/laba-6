@@ -1,4 +1,5 @@
 package SetOfCommands;
+import static Server.ServerClass.setResponse;
 import static SetOfCommands.CommandsPack.getPeople_data;
 
 public class Clear extends Command {
@@ -10,7 +11,7 @@ public class Clear extends Command {
     public void go() {
         getPeople_data().forEach(
                 p->getPeople_data().pop());
-        System.out.println("Коллекция очищена.");
+        setResponse("Коллекция очищена.");
     }
 
 }
