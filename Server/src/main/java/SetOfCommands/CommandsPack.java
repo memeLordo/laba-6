@@ -2,6 +2,7 @@ package SetOfCommands;
 
 import Comparators.PersonIdComparator;
 import Parameters.Person;
+import org.jetbrains.annotations.NotNull;
 import xmlFiles.xmlReader;
 
 import java.util.*;
@@ -70,7 +71,7 @@ public class CommandsPack {
         people_data = s2;
     }
 
-    public static String mapFind(String textLine) {
+    public static String mapFind(@NotNull String textLine) {
 
         String[] setOfCommands = textLine.split(" ");
 
@@ -95,7 +96,7 @@ public class CommandsPack {
             String command = mapFind(console.nextLine());
             map.get(command).go();
         } catch (Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             System.out.println("Неверная команда. Введите 'help' для справки.");
         } finally {
             clearInputCommand();

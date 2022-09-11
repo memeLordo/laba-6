@@ -2,7 +2,9 @@ package SetOfCommands;
 
 import Parameters.Person;
 
+import java.util.Comparator;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import static SetOfCommands.CommandsPack.*;
 
@@ -13,17 +15,34 @@ public class RemoveLower extends Command {
 
     @Override
     public void go() {
-//        if (CommandsPack.isPeopleDataEmpty())
-//        {
-//            getPeople_data().stream().filter(inputCommand)
-//        }
+        if (CommandsPack.isPeopleDataEmpty())
+        {
+            Person matchingPerson=getPeople_data().stream().filter((p) -> ifPersonInCollection(p, inputCommand)).findFirst().get();
+//            getPeople_data().stream().filter(o->
+//                    Comparator.comparing(Person::getName)
+//                            .thenComparing(Person::getCoordinates)
+//                            .thenComparing(Person::getHeight)
+//                            .thenComparing(Person::getWeight)
+//                            .compare(matchingPerson, o) < 0).sorted().forEach(p -> System.out.println(p.getId())
+////                            {
+////                                putPeopleDataUp(p.getId());
+////                                getPeople_data().pop();
+////                            }
+//            );
+            System.out.println("<"+matchingPerson.getId()+">");
 
+            getPeople_data().forEach(o->
+                    System.out.println(-Comparator.comparing(Person::getName)
+                            .thenComparing(Person::getCoordinates)
+                            .thenComparing(Person::getHeight)
+                            .thenComparing(Person::getWeight)
+                            .compare(matchingPerson, o)+" " + o.getId()));
+//                            {
+//                                putPeopleDataUp(p.getId());
+//                                getPeople_data().pop();
+//                            }
+//            );
 
-
-        if(this.findIn(inputID)){
-            System.out.println(inputID);
-            sortPeopleData(inputID);
-            System.out.println("done");
         }
     }
 

@@ -18,7 +18,11 @@ public class MaxElement extends Command {
         long maxHeight = 0;
         double maxWeight = 0;
         LocalDate maxBirth = LocalDate.ofEpochDay(0);
-//        getPeople_data().stream().forEachOrdered(p->);
+
+
+       // getPeople_data().stream().forEachOrdered(p->);
+
+
         for (Person chel : getPeople_data()) {
             maxId = chel.getId() > maxId ? chel.getId() : maxId;
             maxHeight = chel.getHeight() > maxHeight ? chel.getHeight() : maxHeight;
@@ -29,6 +33,6 @@ public class MaxElement extends Command {
         else if (inputCommand.equals(getColumns()[4])) this.findIn(maxHeight);
         else if (inputCommand.equals(getColumns()[5])) this.findIn(maxWeight);
         else if (inputCommand.equals(getColumns()[6])) this.findIn(maxBirth);
-        else System.err.println("Такого элемента нет. Введите 'info' для справки.");
+        else System.out.println("Такого элемента нет. Введите 'info' для справки.");
     }
 }

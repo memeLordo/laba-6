@@ -28,19 +28,22 @@ public abstract class Command {
         }
     }
 
-    public boolean findIn(@NotNull Object obj) {
+    public boolean findIn(@NotNull Object obj) {//ненужная функция
         String line = obj.toString();
         boolean trigger = true;
-        for (Person p : getPeople_data()) {
-            if (ifPerson(p, line)){
-                trigger = false;
-            }
-        }
-        if (trigger) System.err.println("Нет такого элемента.");
+
+        trigger=getPeople_data().stream().noneMatch(p-> ifPersonInCollection(p, line));
+
+//        for (Person p : getPeople_data()) {
+//            if (ifPerson(p, line)){
+//                trigger = false;
+//            }
+//        }
+        if (trigger) System.out.println("Нет такого элемента.");
         return !trigger;
     }
 
-    public boolean ifPerson(@NotNull Person p, String inputText) {
+    public boolean ifPersonInCollection(@NotNull Person p, String inputText) {
         return p.getId().toString().equals(inputText) |
                 p.getName().contains(inputText) |
                 p.getCoordinates().contains(inputText) |
@@ -51,6 +54,8 @@ public abstract class Command {
                 p.getEyeColor().toString().equals(inputText) |
                 p.getLocation().contains(inputText);
     }
+
+
 
     public boolean getDefault() {
         return isDefault;
