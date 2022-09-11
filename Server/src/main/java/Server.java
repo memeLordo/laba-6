@@ -29,6 +29,10 @@ public class Server {
         }
     }
 
+    public static void setResponse(String response) {
+        Server.response = response;
+    }
+
     private static void getRequest() throws IOException, ClassNotFoundException {
 
         //Создание байтбуффера для приема запроса от клиента
@@ -44,7 +48,7 @@ public class Server {
 
         request = (String) ois.readObject();
         System.out.println(request + " received from client at: " + clientAddress);
-        response = request + " kakashka";
+        //response = request + " kakashka";
     }
 
     private static void sendResponse() throws IOException {
@@ -52,5 +56,6 @@ public class Server {
         channel.send(responseBuffer, clientAddress);
         System.out.println("'" + response + "'" + " sent to client at: " + clientAddress);
     }
+
 
 }
