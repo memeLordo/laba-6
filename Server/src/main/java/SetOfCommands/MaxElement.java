@@ -21,14 +21,14 @@ public class MaxElement extends Command {
     public void go() {
 
         if (inputCommand.equals(getColumns()[0])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getId)).get());
-        if (inputCommand.equals(getColumns()[1])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getName)).get());
-        if (inputCommand.equals(getColumns()[2])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getCoordinates)).get());
-        if (inputCommand.equals(getColumns()[3])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getCreationDate)).get());
-        if (inputCommand.equals(getColumns()[4])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getHeight)).get());
-        if (inputCommand.equals(getColumns()[5])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getBirthday)).get());
-        if (inputCommand.equals(getColumns()[6])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getWeight)).get());
-        if (inputCommand.equals(getColumns()[7])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getEyeColor)).get());
-        if (inputCommand.equals(getColumns()[8])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getLocation)).get());
-
+        else if (inputCommand.equals(getColumns()[1])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getName)).get());
+        else if (inputCommand.equals(getColumns()[2])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getCoordinates)).get());
+        else if (inputCommand.equals(getColumns()[3])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getCreationDate)).get());
+        else if (inputCommand.equals(getColumns()[4])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getHeight)).get());
+        else if (inputCommand.equals(getColumns()[5])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getBirthday)).get());
+        else if (inputCommand.equals(getColumns()[6])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getWeight)).get());
+        else if (inputCommand.equals(getColumns()[7])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getEyeColor)).get());
+        else if (inputCommand.equals(getColumns()[8])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getLocation)).get());
+        else throw new NullPointerException();
     }
 }

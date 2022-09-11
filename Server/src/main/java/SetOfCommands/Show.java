@@ -35,4 +35,3 @@ public class Show extends Command {
             getPeople_data().forEach(Show::showPerson);
     }
 }
-
