@@ -118,7 +118,7 @@ public class Person {
                 name = console.nextLine();
                 if (name.equals("")) throw new EmptyLineException("Имя");
             } catch (EmptyLineException e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
                 return new Setter().Name();
             }
 
@@ -233,7 +233,7 @@ public class Person {
                 name = console.nextLine();
                 if (name.equals("")) throw new EmptyLineException("Локация");
             } catch (EmptyLineException e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
                 return new Setter().Location();
             }
             int x = new Random().nextInt(180);

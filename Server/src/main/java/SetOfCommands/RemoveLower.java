@@ -8,12 +8,18 @@ import static SetOfCommands.CommandsPack.*;
 
 public class RemoveLower extends Command {
     public RemoveLower() {
-        super("removelower", "удалить из коллекции все элементы, меньшие, чем заданный",false);
+        super("removelower", "удалить из коллекции все элементы, меньшие, чем заданный",true);
     }
 
     @Override
     public void go() {
-        if (CommandsPack.isPeopleDataEmpty())
+//        if (CommandsPack.isPeopleDataEmpty())
+//        {
+//            getPeople_data().stream().filter(inputCommand)
+//        }
+
+
+
         if(this.findIn(inputID)){
             System.out.println(inputID);
             sortPeopleData(inputID);

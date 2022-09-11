@@ -36,8 +36,8 @@ public class ExecuteFile extends Command{
         console.useDelimiter(System.getProperty("line.separator"));
         while(console.hasNext()){
             try {
-                path= mapFind(console.nextLine());
-                getMap().get(path).go();
+                path = mapFind(console.nextLine());
+                getMap().get(path).go();    //вызов команды
             }catch (Exception ignored){}
 
         }
