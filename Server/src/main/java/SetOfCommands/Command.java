@@ -1,6 +1,7 @@
 package SetOfCommands;
 
 import Parameters.Person;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 
@@ -27,7 +28,7 @@ public abstract class Command {
         }
     }
 
-    public boolean findIn(Object obj) {
+    public boolean findIn(@NotNull Object obj) {
         String line = obj.toString();
         boolean trigger = true;
         for (Person p : getPeople_data()) {
@@ -39,7 +40,7 @@ public abstract class Command {
         return !trigger;
     }
 
-    public boolean ifPerson(Person p, String inputText) {
+    public boolean ifPerson(@NotNull Person p, String inputText) {
         return p.getId().toString().equals(inputText) |
                 p.getName().contains(inputText) |
                 p.getCoordinates().contains(inputText) |
