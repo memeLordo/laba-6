@@ -3,7 +3,6 @@ package SetOfCommands;
 import Parameters.Person;
 
 
-import static Server.ServerClass.addResponse;
 import static SetOfCommands.CommandsPack.getPeople_data;
 import static Parameters.Person.PersonSet;
 import static SetOfCommands.CommandsPack.*;

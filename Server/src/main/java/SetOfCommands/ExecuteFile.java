@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Scanner;
 
-import static Server.ServerClass.sendResponse;
+import static Server.ServerRO.sendResponse;
 import static SetOfCommands.CommandsPack.*;
 
 public class ExecuteFile extends Command{

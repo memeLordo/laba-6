@@ -8,8 +8,8 @@ import xmlFiles.xmlReader;
 import java.io.IOException;
 import java.util.*;
 
-import static Server.ServerClass.addResponse;
-import static Server.ServerClass.sendResponse;
+import static Server.ServerRO.addResponse;
+import static Server.ServerRO.sendResponse;
 
 public class CommandsPack {
     private static final Map<String, Command> map = new HashMap<>();
@@ -37,7 +37,7 @@ public class CommandsPack {
         setCommand(new RemoveLower());
         setCommand(new MaxElement());
 
-        type();
+        //type();
 
     }
 

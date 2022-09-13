@@ -2,7 +2,6 @@ package SetOfCommands;
 
 import xmlFiles.xmlWriter;
 
-import static Server.ServerClass.addResponse;
 import static SetOfCommands.CommandsPack.sortPeopleData;
 import static xmlFiles.xmlData.getPath;
 

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
-import static Server.ServerClass.addResponse;
 import static SetOfCommands.CommandsPack.getPeople_data;
 
 public class Show extends Command {

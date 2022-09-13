@@ -1,5 +1,4 @@
 package SetOfCommands;
-import static Server.ServerClass.addResponse;
 import static SetOfCommands.CommandsPack.getPeople_data;
 
 public class Clear extends Command {

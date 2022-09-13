@@ -1,10 +1,10 @@
 package SetOfCommands;
 
-import Server.ServerClass;
+import Server.ServerRO;
 
 import java.util.Arrays;
 
-import static Server.ServerClass.addResponse;
+import static Server.ServerRO.addResponse;
 
 public class InfoData extends Command{
 
@@ -16,7 +16,7 @@ public class InfoData extends Command{
     public String go() {
         System.out.println("Поля:");
         Arrays.stream(columns).forEachOrdered(p->addResponse(p+"\n"));
-        return ServerClass.getResponse();
+        return ServerRO.getResponse();
     }
 
     public static String[] getColumns() {

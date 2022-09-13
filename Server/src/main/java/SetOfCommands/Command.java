@@ -6,7 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import java.io.IOException;
 
-import static Server.ServerClass.addResponse;
+import static Server.ServerRO.addResponse;
 import static SetOfCommands.CommandsPack.getPeople_data;
 
 public abstract class Command {
