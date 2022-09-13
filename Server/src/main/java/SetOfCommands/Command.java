@@ -69,5 +69,5 @@ public abstract class Command {
         return description;
     }
 
-    public abstract void go();
+    public abstract String go();
 }

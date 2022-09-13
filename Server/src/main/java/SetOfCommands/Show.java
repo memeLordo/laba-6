@@ -24,7 +24,7 @@ public class Show extends Command {
         message+="День рождения: "+person.getBirthday();
         message+="Цвет глаз: "+person.getEyeColor().getName();
         message+="Местоположение: "+person.getLocation()+"\n";
-
+        addResponse(message);
     }
     static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy H:mm:ss");
     private static void format(Object f) {
@@ -32,9 +32,9 @@ public class Show extends Command {
     }
 
     @Override
-    public void go() {
+    public String go() {
         if (CommandsPack.isPeopleDataEmpty())
             getPeople_data().forEach(Show::showPerson);
-        addResponse(message);
+        return message;
     }
 }
