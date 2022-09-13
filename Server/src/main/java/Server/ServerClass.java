@@ -36,8 +36,8 @@ public class ServerClass {
 
     }
 
-    public static void setResponse(String response) {
-        ServerClass.response = response;
+    public static void addResponse(String response1) {
+        ServerClass.response = response+response1;
     }
 
     private static void getRequest() throws IOException, ClassNotFoundException {
@@ -56,6 +56,7 @@ public class ServerClass {
         request = (String) ois.readObject();
         System.out.println(request + " received from client at: " + clientAddress);
         //response = request + " kakashka";
+
     }
 
     private static void sendResponse() throws IOException {

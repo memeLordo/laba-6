@@ -5,7 +5,7 @@ import Parameters.Person;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
-import static Server.ServerClass.setResponse;
+import static Server.ServerClass.addResponse;
 import static SetOfCommands.CommandsPack.getPeople_data;
 
 public class Show extends Command {
@@ -35,6 +35,6 @@ public class Show extends Command {
     public void go() {
         if (CommandsPack.isPeopleDataEmpty())
             getPeople_data().forEach(Show::showPerson);
-        setResponse(message);
+        addResponse(message);
     }
 }

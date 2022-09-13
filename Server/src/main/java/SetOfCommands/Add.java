@@ -3,7 +3,7 @@ package SetOfCommands;
 import Parameters.Person;
 
 
-import static Server.ServerClass.setResponse;
+import static Server.ServerClass.addResponse;
 import static SetOfCommands.CommandsPack.getPeople_data;
 import static Parameters.Person.PersonSet;
 import static SetOfCommands.CommandsPack.*;
@@ -22,12 +22,12 @@ public class Add extends Command {
             Person bebra = new Person();
             getPeople_data().push(bebra);
             sortPeopleData();
-            setResponse("New default user added.");
+            addResponse("New default user added.");
         } else {
             Person bebraPerson = PersonSet();
             getPeople_data().push(bebraPerson);
             sortPeopleData();
-            setResponse("New user added.");
+            addResponse("New user added.");
         }
     }
 

@@ -2,7 +2,7 @@ package SetOfCommands;
 
 import xmlFiles.xmlWriter;
 
-import static Server.ServerClass.setResponse;
+import static Server.ServerClass.addResponse;
 import static SetOfCommands.CommandsPack.sortPeopleData;
 import static xmlFiles.xmlData.getPath;
 
@@ -16,7 +16,7 @@ public class Exit extends Command{
         CreateFile(getPath());
         sortPeopleData();
         xmlWriter.go();
-        setResponse("Данные сохранены.");
+        addResponse("Данные сохранены.");
         System.exit(0);
     }
 }
