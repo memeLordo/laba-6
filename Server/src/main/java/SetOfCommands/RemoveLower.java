@@ -2,6 +2,7 @@ package SetOfCommands;
 
 import Parameters.Person;
 
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Stack;
@@ -15,7 +16,7 @@ public class RemoveLower extends Command {
     }
 
     @Override
-    public void go() {
+    public String go() throws IOException {
         if (CommandsPack.isPeopleDataEmpty()){
             Person matchingPerson = getPeople_data().stream().filter((p) -> ifPersonInCollection(p, inputCommand)).findFirst().get();
 //            List<Person> s = getPeople_data().stream().filter(o ->
@@ -38,5 +39,6 @@ public class RemoveLower extends Command {
                             .compare(matchingPerson, o) + " " + o.getId()));
 
         }
+        return null;
     }
 }

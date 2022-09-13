@@ -1,6 +1,6 @@
 package SetOfCommands;
 
-import Parameters.Person;
+import java.io.IOException;
 
 import static SetOfCommands.CommandsPack.*;
 
@@ -11,8 +11,9 @@ public class Head extends Command{
     }
 
     @Override
-    public void go() {
+    public String go() throws IOException {
         if (CommandsPack.isPeopleDataEmpty())
             Show.showPerson(getPeople_data().firstElement());
+        return Show.getMessage();
     }
 }

@@ -1,5 +1,7 @@
 package SetOfCommands;
 
+import java.io.IOException;
+
 import static SetOfCommands.CommandsPack.*;
 
 public class Contains extends Command {
@@ -8,8 +10,9 @@ public class Contains extends Command {
         super("contains", "description",true);
     }
     @Override
-    public void go() {
+    public String go() throws IOException {
         if (CommandsPack.isPeopleDataEmpty())
             getPeople_data().stream().filter(inputCommand::equals).forEach(Show::showPerson);
+        return Show.getMessage();
     }
 }

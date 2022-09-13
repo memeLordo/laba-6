@@ -12,11 +12,12 @@ public class Exit extends Command{
     }
 
     @Override
-    public void go() {
+    public String go() {
         CreateFile(getPath());
         sortPeopleData();
         xmlWriter.go();
-        addResponse("Данные сохранены.");
-        System.exit(0);
+        return "Данные сохранены.\n";
+        //TODO разобраться с выходом из клиента
+        //System.exit(0);
     }
 }

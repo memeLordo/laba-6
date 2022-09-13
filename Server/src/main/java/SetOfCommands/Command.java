@@ -4,7 +4,9 @@ import Parameters.Person;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.io.IOException;
 
+import static Server.ServerClass.addResponse;
 import static SetOfCommands.CommandsPack.getPeople_data;
 
 public abstract class Command {
@@ -22,7 +24,7 @@ public abstract class Command {
         try {
             File f = new File(name);
             if (f.createNewFile())
-                System.out.println("Инициализация файла...");
+                addResponse("Инициализация файла...\n");
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -69,5 +71,5 @@ public abstract class Command {
         return description;
     }
 
-    public abstract String go();
+    public abstract String go() throws IOException;
 }

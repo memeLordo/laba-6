@@ -8,10 +8,10 @@ public class Clear extends Command {
     }
 
     @Override
-    public void go() {
+    public String go() {
         getPeople_data().forEach(
                 p->getPeople_data().pop());
-        addResponse("Коллекция очищена.");
+        return "Коллекция очищена.\n";
     }
 
 }

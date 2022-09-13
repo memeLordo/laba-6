@@ -20,7 +20,7 @@ public class Save extends Command {
         CreateFile(setPath());
         sortPeopleData();
         xmlWriter.go();
-        return "Данные сохранены.";
+        return "Данные сохранены.\n";
     }
 
 

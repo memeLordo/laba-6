@@ -18,7 +18,7 @@ public class MaxElement extends Command {
     }
 
     @Override
-    public void go() {
+    public String go() {
 
         if (inputCommand.equals(getColumns()[0])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getId)).get());
         else if (inputCommand.equals(getColumns()[1])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getName)).get());
@@ -30,5 +30,6 @@ public class MaxElement extends Command {
         else if (inputCommand.equals(getColumns()[7])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getEyeColor)).get());
         else if (inputCommand.equals(getColumns()[8])) Show.showPerson(getPeople_data().stream().max(Comparator.comparing(Person::getLocation)).get());
         else throw new NullPointerException();
+        return Show.getMessage();
     }
 }

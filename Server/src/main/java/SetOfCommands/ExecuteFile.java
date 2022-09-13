@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Scanner;
 
+import static Server.ServerClass.sendResponse;
 import static SetOfCommands.CommandsPack.*;
 
 public class ExecuteFile extends Command{
@@ -12,7 +13,7 @@ public class ExecuteFile extends Command{
     }
 
     @Override
-    public void go() {
+    public String go() {
         String filename  = inputCommand == null ?"commands.txt":inputCommand+".txt";
 //        String directory = "executeFilesPack";
 //        try {
@@ -23,6 +24,7 @@ public class ExecuteFile extends Command{
 //        filename = directory +"/"+filename;
         CreateFile(filename);
         ScanFile(filename);
+        return null;
     }
     private void ScanFile(String text){
         Scanner console = null;
@@ -38,6 +40,7 @@ public class ExecuteFile extends Command{
             try {
                 path = mapFind(console.nextLine());
                 getMap().get(path).go();    //вызов команды
+                sendResponse();
             }catch (Exception ignored){}
 
         }

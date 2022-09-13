@@ -1,15 +1,17 @@
 package SetOfCommands;
+import java.io.IOException;
+
 import static SetOfCommands.CommandsPack.*;
 public class RemoveFirst extends Command {
     public RemoveFirst() {
         super("removefirst", "удалить первый элемент из коллекции",false);
     }
     @Override
-    public void go() {
+    public String go() throws IOException {
             if(isPeopleDataEmpty()){
                 putPeopleDataUp(getPeople_data().firstElement().getId());
                 getPeople_data().pop();
-                System.out.println("RemoveFirst completed.");
             }
+            return "RemoveFirst completed.\n";
     }
 }

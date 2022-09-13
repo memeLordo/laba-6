@@ -16,18 +16,18 @@ public class Add extends Command {
     }
 
     @Override
-    public void go() {
+    public String go() {
 
         if (inputCommand.equals("def")){
             Person bebra = new Person();
             getPeople_data().push(bebra);
             sortPeopleData();
-            addResponse("New default user added.");
+            return "New default user added.\n";
         } else {
             Person bebraPerson = PersonSet();
             getPeople_data().push(bebraPerson);
             sortPeopleData();
-            addResponse("New user added.");
+            return "New user added.\n";
         }
     }
 

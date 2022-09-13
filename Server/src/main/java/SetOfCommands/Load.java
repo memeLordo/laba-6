@@ -12,10 +12,11 @@ public class Load extends Command{
     }
 
     @Override
-    public void go() {
+    public String go() {
+        //TODO разобраться с отправкой
         xmlWriter.setPath();
         sortPeopleData();
         xmlWriter.go();
-        System.out.println("Data loaded.");
+        return "Data loaded.\n";
     }
 }

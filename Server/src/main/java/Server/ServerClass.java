@@ -40,6 +40,10 @@ public class ServerClass {
         ServerClass.response = response+response1;
     }
 
+    public static String getResponse() {
+        return response;
+    }
+
     private static void getRequest() throws IOException, ClassNotFoundException {
 
         //Создание байтбуффера для приема запроса от клиента
@@ -59,10 +63,11 @@ public class ServerClass {
 
     }
 
-    private static void sendResponse() throws IOException {
+    public static void sendResponse() throws IOException {
         ByteBuffer responseBuffer = ByteBuffer.wrap(response.getBytes());
         channel.send(responseBuffer, clientAddress);
         System.out.println("'" + response + "'" + " sent to client at: " + clientAddress);
+        response = null;
     }
 
 

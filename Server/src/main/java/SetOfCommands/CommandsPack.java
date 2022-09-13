@@ -5,9 +5,11 @@ import Parameters.Person;
 import org.jetbrains.annotations.NotNull;
 import xmlFiles.xmlReader;
 
+import java.io.IOException;
 import java.util.*;
 
 import static Server.ServerClass.addResponse;
+import static Server.ServerClass.sendResponse;
 
 public class CommandsPack {
     private static final Map<String, Command> map = new HashMap<>();
@@ -51,8 +53,11 @@ public class CommandsPack {
         CommandsPack.people_data = people_data;
     }
 
-    public static boolean isPeopleDataEmpty() {
-        if (people_data.empty()) addResponse("В коллекции нет элементов.");
+    public static boolean isPeopleDataEmpty() throws IOException {
+        if (people_data.empty()){
+            addResponse("В коллекции нет элементов.\n");
+            sendResponse();
+        }
         return !people_data.empty();
     }
 

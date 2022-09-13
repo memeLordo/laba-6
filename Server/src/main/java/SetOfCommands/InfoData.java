@@ -1,6 +1,10 @@
 package SetOfCommands;
 
+import Server.ServerClass;
+
 import java.util.Arrays;
+
+import static Server.ServerClass.addResponse;
 
 public class InfoData extends Command{
 
@@ -9,9 +13,10 @@ public class InfoData extends Command{
     }
     private static final String[] columns ={"id","name", "coordinates","creation_date", "height", "weight","birthday", "eyeColor", "location"};
     @Override
-    public void go() {
+    public String go() {
         System.out.println("Поля:");
-        Arrays.stream(columns).forEachOrdered(System.out::println);
+        Arrays.stream(columns).forEachOrdered(p->addResponse(p+"\n"));
+        return ServerClass.getResponse();
     }
 
     public static String[] getColumns() {
