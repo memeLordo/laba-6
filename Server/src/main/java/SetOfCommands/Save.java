@@ -3,6 +3,7 @@ package SetOfCommands;
 
 import xmlFiles.xmlWriter;
 
+import static Server.ServerClass.addResponse;
 import static SetOfCommands.CommandsPack.sortPeopleData;
 import static xmlFiles.xmlData.setPath;
 
@@ -14,12 +15,12 @@ public class Save extends Command {
 
 
     @Override
-    public void go() {
+    public String go() {
 
         CreateFile(setPath());
         sortPeopleData();
         xmlWriter.go();
-        System.out.println("Данные сохранены.");
+        return "Данные сохранены.";
     }
 
 
