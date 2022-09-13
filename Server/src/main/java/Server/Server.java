@@ -17,8 +17,8 @@ public class Server {
     public static void go() {
 
         try {
-            channel.bind(serverAdd);
             channel = DatagramChannel.open();
+            channel.bind(serverAdd);
             ServerRO.go();
         } catch (Exception e) {
             e.printStackTrace();
