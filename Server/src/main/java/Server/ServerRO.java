@@ -11,7 +11,7 @@ import static SetOfCommands.CommandsPack.getMap;
 import static SetOfCommands.CommandsPack.mapFind;
 
 public class ServerRO { //Server Request Operator
-    private static String response;
+    private static String response="";
     private static SocketAddress clientAddress;
 
     public static void go() {
@@ -20,8 +20,16 @@ public class ServerRO { //Server Request Operator
         try {
             getRequest();
             sendResponse();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (IOException | ClassNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        catch(NullPointerException e2){
+            addResponse("Неверная команда. Введите 'help' для справки.");
+            try {
+                sendResponse();
+            } catch (IOException e) {
+                System.err.println("lol, u ded");;
+            }
         }
         finally {
             ServerRO.go();
@@ -30,7 +38,7 @@ public class ServerRO { //Server Request Operator
     }
 
     public static void addResponse(String response1) {
-        ServerRO.response = response + response1;
+        response = response + response1;
     }
 
     public static String getResponse() {
