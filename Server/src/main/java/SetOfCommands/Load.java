@@ -2,6 +2,9 @@ package SetOfCommands;
 
 import xmlFiles.xmlWriter;
 
+import java.nio.file.NoSuchFileException;
+
+import static Server.ServerRO.addResponse;
 import static SetOfCommands.CommandsPack.sortPeopleData;
 
 public class Load extends Command{
@@ -16,7 +19,11 @@ public class Load extends Command{
         //TODO разобраться с отправкой
         xmlWriter.setPath();
         sortPeopleData();
-        xmlWriter.go();
-        return "Data loaded.\n";
+        try {
+            xmlWriter.go();
+        } catch (NoSuchFileException e) {
+            return "Baka! The file isn't exist.";
+        }
+        return "Data loaded.";
     }
 }

@@ -3,17 +3,14 @@ package xmlFiles;
 import SetOfCommands.Command;
 import Exceptions.EmptyLineException;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-import static java.lang.System.in;
+import static Server.ServerRO.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public abstract class xmlData {
@@ -27,12 +24,22 @@ public abstract class xmlData {
 
     public static String setPath() {
         try {
-            System.out.print("Введите название файла: ");
-            path = new Scanner(in).nextLine();
+            addResponse("Введите название файла: ");
+            sendResponse();
+            path = getRequest(false);
             if (path.equals("")) throw new EmptyLineException("Имя файла");
-        } catch (EmptyLineException e) {
-            System.out.println(e.getMessage());
+        }
+        catch (EmptyLineException e1) {
+            addResponse(e1.getMessage());
+            try {
+                sendResponse();
+            } catch (IOException e) {
+                System.err.println("lol, server stops working");
+            }
             setPath();
+        }
+        catch (IOException | ClassNotFoundException e2){
+            System.err.println("lol, server stops working again");
         }
         path = directory + "/" + path+ ".xml";
         return path; //xml-files with directory
@@ -40,12 +47,16 @@ public abstract class xmlData {
     }
 
 
-    static void write(String text) {
-        try (Writer translator = new OutputStreamWriter(new FileOutputStream(path), UTF_8)) {
-            translator.write(text);
-        } catch (IOException e) {
-            e.printStackTrace();
+    static void write(String text) throws NoSuchFileException {
+        File f= new File(path);
+        if(f.exists()&&!f.isDirectory()){
+            try (Writer translator = new OutputStreamWriter(new FileOutputStream(path), UTF_8)) {
+                translator.write(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        else throw new NoSuchFileException(path);
     }
 
     static String read() {

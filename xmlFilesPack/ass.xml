@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set>
+	<person>
+		<id>93773714</id>
+		<name>Иван Никитин</name>
+		<coordinates>135° . 36°</coordinates>
+		<creation_date>Wed Sep 14 16:02:05 MSK 2022</creation_date>
+		<height>181</height>
+		<weight>58.97</weight>
+		<birthday>1989-09-13</birthday>
+		<eyeColor>ORANGE</eyeColor>
+		<location>-87:-180:0.68 Место: Албания</location>
+	</person>
+</set>

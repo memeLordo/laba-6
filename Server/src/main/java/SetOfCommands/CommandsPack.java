@@ -53,11 +53,7 @@ public class CommandsPack {
         CommandsPack.people_data = people_data;
     }
 
-    public static boolean isPeopleDataEmpty() throws IOException {
-        if (people_data.empty()){
-            addResponse("В коллекции нет элементов.\n");
-            sendResponse();
-        }
+    public static boolean isPeopleDataEmpty() {
         return !people_data.empty();
     }
 
