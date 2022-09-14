@@ -24,7 +24,7 @@ public class ExecuteFile extends Command{
 //        filename = directory +"/"+filename;
         CreateFile(filename);
         ScanFile(filename);
-        return null;
+        return "";
     }
     private void ScanFile(String text){
         Scanner console = null;

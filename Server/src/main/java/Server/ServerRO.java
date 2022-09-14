@@ -18,7 +18,7 @@ public class ServerRO { //Server Request Operator
 
         //Открытие канала, который слушает на заданном адресе serverAdd
         try {
-            getRequest();
+            getRequest(true);
             sendResponse();
         } catch (IOException | ClassNotFoundException e1) {
             e1.printStackTrace();
@@ -45,7 +45,7 @@ public class ServerRO { //Server Request Operator
         return response;
     }
 
-    private static void getRequest() throws IOException, ClassNotFoundException {
+    public static String getRequest(boolean isCommand) throws IOException, ClassNotFoundException {
 
         //Создание байтбуффера для приема запроса от клиента
         ByteBuffer requestBuffer = ByteBuffer.allocate(4096);
@@ -64,8 +64,9 @@ public class ServerRO { //Server Request Operator
 
         System.out.println(request + " received from client at: " + clientAddress);
         //response = request + " kakashka";
-        response = getMap().get(mapFind(request)).go();
-
+        if(isCommand) response = getMap().get(mapFind(request)).go();
+        else response = request;
+        return request;
     }
 
     public static void sendResponse() throws IOException {

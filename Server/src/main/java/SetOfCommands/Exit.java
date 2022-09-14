@@ -2,6 +2,8 @@ package SetOfCommands;
 
 import xmlFiles.xmlWriter;
 
+import java.nio.file.NoSuchFileException;
+
 import static SetOfCommands.CommandsPack.sortPeopleData;
 import static xmlFiles.xmlData.getPath;
 
@@ -11,11 +13,11 @@ public class Exit extends Command{
     }
 
     @Override
-    public String go() {
+    public String go() throws NoSuchFileException {
         CreateFile(getPath());
         sortPeopleData();
         xmlWriter.go();
-        return "Данные сохранены.\n";
+        return "Данные сохранены.";
         //TODO разобраться с выходом из клиента
         //System.exit(0);
     }

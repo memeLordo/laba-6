@@ -73,6 +73,7 @@ public abstract class xmlData {
 //            try {
 //                String choice = new Scanner(System.in).next("[yn]");
 //                if ("y".equals(choice)){
+            //TODO создать обработку
             Command.CreateFile(path);
 //                }
 //            }

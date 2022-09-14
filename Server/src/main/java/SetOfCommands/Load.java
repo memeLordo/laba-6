@@ -16,7 +16,7 @@ public class Load extends Command{
 
     @Override
     public String go() {
-        //TODO разобраться с отправкой
+
         xmlWriter.setPath();
         sortPeopleData();
         try {

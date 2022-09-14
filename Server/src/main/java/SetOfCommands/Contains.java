@@ -7,12 +7,15 @@ import static SetOfCommands.CommandsPack.*;
 public class Contains extends Command {
 
     public Contains() {
-        super("contains", "description",true);
+        super("contains", "description", true);
     }
+
     @Override
     public String go() throws IOException {
-        if (CommandsPack.isPeopleDataEmpty())
+        if (isPeopleDataEmpty()){
             getPeople_data().stream().filter(inputCommand::equals).forEach(Show::showPerson);
-        return coolEdit(Show.getMessage());
+            return coolEdit(Show.getMessage());
+        }
+        else return "В коллекции нет элементов.";
     }
 }
