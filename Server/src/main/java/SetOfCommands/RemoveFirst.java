@@ -12,6 +12,6 @@ public class RemoveFirst extends Command {
                 putPeopleDataUp(getPeople_data().firstElement().getId());
                 getPeople_data().pop();
             }
-            return "RemoveFirst completed.\n";
+            return "RemoveFirst completed.";
     }
 }

@@ -17,6 +17,6 @@ public class Remove extends Command {
             getPeople_data().pop();
             sortPeopleData();
         }
-        return "Remove completed.\n";
+        return "Remove completed.";
     }
 }

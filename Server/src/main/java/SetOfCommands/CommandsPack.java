@@ -83,13 +83,13 @@ public class CommandsPack {
         String[] setOfCommands = textLine.split(" ");
 
         try {
+            clearInputCommand();
             inputCommand = setOfCommands[1];
             inputID = Integer.parseInt(inputCommand);
 
         } catch (NullPointerException e1) {
             e1.printStackTrace();
         }
-        //}
         catch (ArrayIndexOutOfBoundsException | NumberFormatException ignored) {
         } finally {
             return setOfCommands[0];
@@ -116,7 +116,7 @@ public class CommandsPack {
         if (command.getDefault()) defCommandSet.add(command.getName());
     }
 
-    private static void clearInputCommand() {
+    public static void clearInputCommand() {
         inputCommand = "";
         inputID = 0;
     }

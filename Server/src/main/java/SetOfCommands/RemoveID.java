@@ -17,6 +17,6 @@ public class RemoveID extends Command {
             getPeople_data().pop();
             sortPeopleData();
         }
-        return "RemoveID completed.\n";
+        return "RemoveID completed.";
     }
 }

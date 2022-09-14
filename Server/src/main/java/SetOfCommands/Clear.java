@@ -10,7 +10,7 @@ public class Clear extends Command {
     public String go() {
         getPeople_data().forEach(
                 p->getPeople_data().pop());
-        return "Коллекция очищена.\n";
+        return "Коллекция очищена.";
     }
 
 }

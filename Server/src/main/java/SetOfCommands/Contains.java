@@ -13,6 +13,6 @@ public class Contains extends Command {
     public String go() throws IOException {
         if (CommandsPack.isPeopleDataEmpty())
             getPeople_data().stream().filter(inputCommand::equals).forEach(Show::showPerson);
-        return Show.getMessage();
+        return coolEdit(Show.getMessage());
     }
 }

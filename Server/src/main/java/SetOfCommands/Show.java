@@ -26,8 +26,8 @@ public class Show extends Command {
         message+="Дата создания: "+dateFormat.format(person.getCreationDate());
         message+="Рост: "+"person.getHeight()"+" см\n";
         message+="Вес: "+person.getWeight()+" кг\n";
-        message+="День рождения: "+person.getBirthday();
-        message+="Цвет глаз: "+person.getEyeColor().getName();
+        message+="День рождения: "+person.getBirthday()+"\n";
+        message+="Цвет глаз: "+person.getEyeColor().getName()+"\n";
         message+="Местоположение: "+person.getLocation()+"\n";
 
     }
@@ -40,6 +40,6 @@ public class Show extends Command {
     public String go() throws IOException {
         if (CommandsPack.isPeopleDataEmpty())
             getPeople_data().forEach(Show::showPerson);
-        return message;
+        return coolEdit(message);
     }
 }

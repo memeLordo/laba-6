@@ -72,4 +72,9 @@ public abstract class Command {
     }
 
     public abstract String go() throws IOException;
+
+    public String coolEdit(String line){
+        if (line.toCharArray()[0] == '\n') return line.substring(1);
+        else return "\n"+line.substring(0,line.length()-1);
+    }
 }

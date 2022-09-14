@@ -32,6 +32,7 @@ public class Client {
     }
 
     private static void processInput() {
+        System.out.print("~ ");
         word = scanner.nextLine();
     }
 

@@ -5,6 +5,7 @@ import Server.ServerRO;
 import java.util.Arrays;
 
 import static Server.ServerRO.addResponse;
+import static Server.ServerRO.getResponse;
 
 public class InfoData extends Command{
 
@@ -16,7 +17,7 @@ public class InfoData extends Command{
     public String go() {
         System.out.println("Поля:");
         Arrays.stream(columns).forEachOrdered(p->addResponse(p+"\n"));
-        return ServerRO.getResponse();
+        return coolEdit(getResponse());
     }
 
     public static String[] getColumns() {

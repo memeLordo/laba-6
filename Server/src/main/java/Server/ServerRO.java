@@ -71,8 +71,11 @@ public class ServerRO { //Server Request Operator
     public static void sendResponse() throws IOException {
         ByteBuffer responseBuffer = ByteBuffer.wrap(response.getBytes());
         getChannel().send(responseBuffer, clientAddress);
-        System.out.println("'" + response + "'" + " sent to client at: " + clientAddress);
-        response = null;
+        //кастомизация
+        response = response.toCharArray()[0]=='\n'?response.substring(1,11):response.substring(0,11);
+
+        System.out.println("'" + response + "...'" + " sent to client at: " + clientAddress);
+        response = "";
     }
 
 

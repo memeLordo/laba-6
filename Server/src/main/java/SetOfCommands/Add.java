@@ -21,12 +21,12 @@ public class Add extends Command {
             Person bebra = new Person();
             getPeople_data().push(bebra);
             sortPeopleData();
-            return "New default user added.\n";
+            return "New default user added.";
         } else {
             Person bebraPerson = PersonSet();
             getPeople_data().push(bebraPerson);
             sortPeopleData();
-            return "New user added.\n";
+            return "New user added.";
         }
     }
 
