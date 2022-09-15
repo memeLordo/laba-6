@@ -12,6 +12,7 @@ public class UpdateID extends Command {
 
     @Override
     public String go() throws IOException {
+        int inputID = Integer.parseInt(inputCommand);
         if (CommandsPack.isPeopleDataEmpty()){
             putPeopleDataUp(inputID);
             getPeople_data().pop();

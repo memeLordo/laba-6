@@ -41,7 +41,6 @@ public class ExecuteFile extends Command{
             try {
                 path = mapFind(console.nextLine());
                 addResponse(getMap().get(path).go()+"\n");    //вызов команды
-//                sendResponse();
             }catch (Exception ignored){}
 
         }

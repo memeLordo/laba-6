@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set>
+	<person>
+		<id>287131491</id>
+		<name>Саша Петров</name>
+		<coordinates>15° . 121°</coordinates>
+		<creation_date>Thu Sep 15 14:54:30 MSK 2022</creation_date>
+		<height>164</height>
+		<weight>53.79</weight>
+		<birthday>1973-12-21</birthday>
+		<eyeColor>GREEN</eyeColor>
+		<location>160:59:0.95 Место: Албания</location>
+	</person>
+	<person>
+		<id>495644568</id>
+		<name>Евгений Петров</name>
+		<coordinates>103° . 141°</coordinates>
+		<creation_date>Thu Sep 15 14:54:30 MSK 2022</creation_date>
+		<height>163</height>
+		<weight>58.45</weight>
+		<birthday>1990-06-29</birthday>
+		<eyeColor>YELLOW</eyeColor>
+		<location>61:63:0.67 Место: Великобритания</location>
+	</person>
+	<person>
+		<id>568406843</id>
+		<name>Валентин Никитин</name>
+		<coordinates>84° . 78°</coordinates>
+		<creation_date>Thu Sep 15 14:54:30 MSK 2022</creation_date>
+		<height>158</height>
+		<weight>47.43</weight>
+		<birthday>1988-08-13</birthday>
+		<eyeColor>WHITE</eyeColor>
+		<location>148:30:0.59 Место: США</location>
+	</person>
+	<person>
+		<id>924879090</id>
+		<name>Евгений Серебрянский</name>
+		<coordinates>45° . 178°</coordinates>
+		<creation_date>Thu Sep 15 14:54:30 MSK 2022</creation_date>
+		<height>169</height>
+		<weight>51.41</weight>
+		<birthday>1990-05-30</birthday>
+		<eyeColor>WHITE</eyeColor>
+		<location>53:-105:0.91 Место: Германия</location>
+	</person>
+</set>

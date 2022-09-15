@@ -6,6 +6,8 @@ import Parameters.Location;
 import Parameters.Person;
 import SetOfCommands.InfoData;
 
+import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.Stack;
@@ -16,7 +18,7 @@ import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
 
 public class xmlReader extends xmlData {
-    public static Stack<Person> go() {
+    public static Stack<Person> go() throws IOException {
         Stack<Person> result = new Stack<>();
         Scanner sc = new Scanner(read());
         String[] type = InfoData.getColumns();

@@ -8,15 +8,19 @@ import xmlFiles.xmlReader;
 import java.io.IOException;
 import java.util.*;
 
-import static Server.ServerRO.addResponse;
-import static Server.ServerRO.sendResponse;
-
 public class CommandsPack {
     private static final Map<String, Command> map = new HashMap<>();
     private static final List<String> defCommandSet = new LinkedList<>();
-    public static Integer inputID = 0;
     public static String inputCommand = null;
-    private static Stack<Person> people_data = xmlReader.go();
+    private static Stack<Person> people_data;
+    static {
+        try {
+            people_data = xmlReader.go();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public static void go() {
         setCommand(new Help());
@@ -36,9 +40,7 @@ public class CommandsPack {
         setCommand(new RemoveFirst());
         setCommand(new RemoveLower());
         setCommand(new MaxElement());
-
         //type();
-
     }
 
     public static Map<String, Command> getMap() {
@@ -81,7 +83,6 @@ public class CommandsPack {
         try {
             clearInputCommand();
             inputCommand = setOfCommands[1];
-            inputID = Integer.parseInt(inputCommand);
 
         } catch (NullPointerException e1) {
             e1.printStackTrace();
@@ -114,6 +115,5 @@ public class CommandsPack {
 
     public static void clearInputCommand() {
         inputCommand = "";
-        inputID = 0;
     }
 }
