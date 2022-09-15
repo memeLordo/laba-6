@@ -2,9 +2,10 @@ package SetOfCommands;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Objects;
 import java.util.Scanner;
 
-import static Server.ServerRO.sendResponse;
+import static Server.ServerRO.*;
 import static SetOfCommands.CommandsPack.*;
 
 public class ExecuteFile extends Command{
@@ -14,7 +15,7 @@ public class ExecuteFile extends Command{
 
     @Override
     public String go() {
-        String filename  = inputCommand == null ?"commands.txt":inputCommand+".txt";
+        String filename  = Objects.equals(inputCommand, "") ?"commands.txt":inputCommand+".txt";
 //        String directory = "executeFilesPack";
 //        try {
 //            xmlData.checkDirectory(directory);
@@ -24,7 +25,7 @@ public class ExecuteFile extends Command{
 //        filename = directory +"/"+filename;
         CreateFile(filename);
         ScanFile(filename);
-        return "";
+        return coolEdit(getResponse());
     }
     private void ScanFile(String text){
         Scanner console = null;
@@ -39,8 +40,8 @@ public class ExecuteFile extends Command{
         while(console.hasNext()){
             try {
                 path = mapFind(console.nextLine());
-                getMap().get(path).go();    //вызов команды
-                sendResponse();
+                addResponse(getMap().get(path).go()+"\n");    //вызов команды
+//                sendResponse();
             }catch (Exception ignored){}
 
         }

@@ -59,7 +59,7 @@ public abstract class xmlData {
         else throw new NoSuchFileException(path);
     }
 
-    static String read() {
+    static String read() { //
         StringBuilder line = new StringBuilder();
         try {
             checkDirectory(directory);

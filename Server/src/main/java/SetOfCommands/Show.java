@@ -11,7 +11,7 @@ import static SetOfCommands.CommandsPack.isPeopleDataEmpty;
 
 public class Show extends Command {
     static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy H:mm:ss");
-    private static String message = null;
+    private static String message = "";
 
     public Show() {
         super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении", false);
@@ -36,7 +36,7 @@ public class Show extends Command {
     }
 
     private static void format(Object f) {
-        message += "id: " + new DecimalFormat("000000000").format(f);
+        message += "id: " + new DecimalFormat("000000000").format(f)+"\n";
     }
 
     @Override

@@ -11,7 +11,7 @@ public class Load extends Command{
 
 
     public Load() {
-        super("load", "load previously saved file", true);
+        super("load", "load previously saved file", false);
     }
 
     @Override
