@@ -79,7 +79,6 @@ public class CommandsPack {
     public static String mapFind(@NotNull String textLine) {
 
         String[] setOfCommands = textLine.split(" ");
-
         try {
             clearInputCommand();
             inputCommand = setOfCommands[1];
@@ -87,27 +86,25 @@ public class CommandsPack {
         } catch (NullPointerException e1) {
             e1.printStackTrace();
         }
-        catch (ArrayIndexOutOfBoundsException | NumberFormatException ignored) {
-        } finally {
+        catch (ArrayIndexOutOfBoundsException | NumberFormatException ignored) {}
+        finally {
             return setOfCommands[0];
         }
     }
-
-    private static void type() {
-        Scanner console = new Scanner(System.in);
-        try {
-            System.out.print("~ ");
-            String command = mapFind(console.nextLine());
-            map.get(command).go();
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Неверная команда. Введите 'help' для справки.");
-        } finally {
-            clearInputCommand();
-            type();
-        }
-    }
-
+//    private static void type() {
+//        Scanner console = new Scanner(System.in);
+//        try {
+//            System.out.print("~ ");
+//            String command = mapFind(console.nextLine());
+//            map.get(command).go();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.out.println("Неверная команда. Введите 'help' для справки.");
+//        } finally {
+//            clearInputCommand();
+//            type();
+//        }
+//    }
     private static void setCommand(Command command) {
         map.put(command.getName(), command);
         if (command.getDefault()) defCommandSet.add(command.getName());

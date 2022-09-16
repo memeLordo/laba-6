@@ -31,11 +31,6 @@ public abstract class xmlData {
             if (path.equals("")) throw new EmptyLineException("Имя файла");
         } catch (EmptyLineException e1) {
             addResponse(e1.getMessage());
-            try {
-                sendResponse();
-            } catch (IOException e) {
-                System.err.println("lol, server stops working");
-            }
             setPath();
         } catch (IOException | ClassNotFoundException e2) {
             System.err.println("lol, server stops working again");

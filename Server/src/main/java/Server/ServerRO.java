@@ -24,11 +24,12 @@ public class ServerRO { //Server Request Operator
             e1.printStackTrace();
         }
         catch(NullPointerException e2){
+            e2.printStackTrace();
             addResponse("Неверная команда. Введите 'help' для справки.");
             try {
                 sendResponse();
             } catch (IOException e) {
-                System.err.println("lol, u ded");;
+                System.err.println("lol, u ded");
             }
         }
         finally {
@@ -46,10 +47,8 @@ public class ServerRO { //Server Request Operator
     }
 
     public static String getRequest(boolean isCommand) throws IOException, ClassNotFoundException {
-
         //Создание байтбуффера для приема запроса от клиента
         ByteBuffer requestBuffer = ByteBuffer.allocate(4096);
-
         //Получение датаграммы в байтбуффер и сохраняем адрес клиента в remoteAdd
         clientAddress = getChannel().receive(requestBuffer);
         byte[] requestArr = requestBuffer.array();
@@ -58,9 +57,7 @@ public class ServerRO { //Server Request Operator
         ByteArrayInputStream bais = new ByteArrayInputStream(requestArr);
         ObjectInputStream ois = new ObjectInputStream(bais);
 
-
         String request = (String) ois.readObject();
-
 
         System.out.println(request + " received from client at: " + clientAddress);
         //response = request + " kakashka";

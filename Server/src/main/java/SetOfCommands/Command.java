@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.IOException;
 
 import static Server.ServerRO.addResponse;
-import static SetOfCommands.CommandsPack.getPeople_data;
 
 public abstract class Command {
     private final String name;
@@ -28,21 +27,6 @@ public abstract class Command {
         } catch (Exception e) {
             System.err.println(e);
         }
-    }
-
-    public boolean findIn(@NotNull Object obj) {//ненужная функция
-        String line = obj.toString();
-        boolean trigger = true;
-
-        trigger=getPeople_data().stream().noneMatch(p-> ifPersonInCollection(p, line));
-
-//        for (Person p : getPeople_data()) {
-//            if (ifPerson(p, line)){
-//                trigger = false;
-//            }
-//        }
-        if (trigger) System.out.println("Нет такого элемента.");
-        return !trigger;
     }
 
     public boolean ifPersonInCollection(@NotNull Person p, String inputText) {
