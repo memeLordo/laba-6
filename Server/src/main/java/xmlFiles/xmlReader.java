@@ -22,7 +22,7 @@ public class xmlReader extends xmlData {
         Stack<Person> result = new Stack<>();
         Scanner sc = new Scanner(read());
         String[] type = InfoData.getColumns();
-        String[] fill = new String[9];
+        String[] fill = new String[InfoData.getColumns().length];
         while (sc.hasNext()) {
             String input = sc.nextLine();
             for (int i = 0; i < fill.length; i++)

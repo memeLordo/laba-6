@@ -2,13 +2,14 @@ package Parameters;
 
 import Exceptions.EmptyLineException;
 import SetOfCommands.Generator;
+import org.jetbrains.annotations.NotNull;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 import java.util.*;
 
-public class Person {
+public class Person implements Comparable<Person> {
 
 
     private final String name; //Поле не может быть null, Строка не может быть пустой
@@ -99,6 +100,10 @@ public class Person {
 
     public String getLocation() {
         return location.getX() + ":" + location.getY() + ":" + dF.format(location.getZ()) + " Место:" + " "+ location.getName();
+    }
+
+    public int compareTo(@NotNull Person o) {
+        return this.birthday.compareTo(o.birthday);
     }
 
     private static class Setter implements PersonSet {

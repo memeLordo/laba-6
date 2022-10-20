@@ -1,4 +1,5 @@
 package SetOfCommands;
+
 import static SetOfCommands.CommandsPack.getPeople_data;
 
 public class Clear extends Command {
@@ -8,8 +9,7 @@ public class Clear extends Command {
 
     @Override
     public String go() {
-        getPeople_data().forEach(
-                p->getPeople_data().pop());
+        getPeople_data().clear();
         return "Коллекция очищена.";
     }
 

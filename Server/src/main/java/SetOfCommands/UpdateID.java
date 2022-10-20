@@ -18,7 +18,6 @@ public class UpdateID extends Command {
             getPeople_data().pop();
             getPeople_data().push(PersonSet(inputID));
             sortPeopleData();
-
         }
         return "Пользователь изменён";
     }

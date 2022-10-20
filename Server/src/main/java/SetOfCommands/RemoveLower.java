@@ -19,26 +19,23 @@ public class RemoveLower extends Command {
     public String go() throws IOException {
         if (CommandsPack.isPeopleDataEmpty()){
             Person matchingPerson = getPeople_data().stream().filter((p) -> ifPersonInCollection(p, inputCommand)).findFirst().get();
-//            List<Person> s = getPeople_data().stream().filter(o ->
-//                    Comparator.comparing(Person::getName)
+            List<Person> s = getPeople_data().stream().filter(o -> o.compareTo(matchingPerson) >= 0).collect(Collectors.toList());
+            Stack<Person> s1 = new Stack<>();
+            s.forEach(s1::push);
+            setPeople_data(s1);
+
+//            System.out.println("<" + matchingPerson.getId() + ">");
+//
+//            getPeople_data().forEach(o ->
+//                    System.out.println(-Comparator.comparing(Person::getName)
 //                            .thenComparing(Person::getCoordinates)
 //                            .thenComparing(Person::getHeight)
 //                            .thenComparing(Person::getWeight)
-//                            .compare(matchingPerson, o) < 0).collect(Collectors.toList());
-//            Stack<Person> s1 = new Stack<>();
-//            s.forEach(s1::push);
-//            setPeople_data(s1);
+//                            .compare(matchingPerson, o) + " " + o.getId()));
 
-            System.out.println("<" + matchingPerson.getId() + ">");
 
-            getPeople_data().forEach(o ->
-                    System.out.println(-Comparator.comparing(Person::getName)
-                            .thenComparing(Person::getCoordinates)
-                            .thenComparing(Person::getHeight)
-                            .thenComparing(Person::getWeight)
-                            .compare(matchingPerson, o) + " " + o.getId()));
 
         }
-        return null;
+        return "Done.";
     }
 }

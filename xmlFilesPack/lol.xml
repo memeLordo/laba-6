@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set>
+	<person>
+		<id>595230697</id>
+		<name>Даниил Иванов</name>
+		<coordinates>89° . 164°</coordinates>
+		<creation_date>Fri Sep 16 13:53:55 MSK 2022</creation_date>
+		<height>181</height>
+		<weight>72.07</weight>
+		<birthday>1975-01-16</birthday>
+		<eyeColor>YELLOW</eyeColor>
+		<location>-89:-126:0.86 Место: Германия</location>
+	</person>
+</set>
