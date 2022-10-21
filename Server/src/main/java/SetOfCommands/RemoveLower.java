@@ -17,7 +17,11 @@ public class RemoveLower extends Command {
     @Override
     public String go() throws IOException {
         isPeopleDataEmptyCheck();
-            Person matchingPerson = getPeople_data().stream().filter((p) -> ifPersonInCollection(p, inputCommand)).findFirst().get();
+            Person matchingPerson = getPeople_data()
+                    .stream().filter((p) -> ifPersonInCollection(p, inputCommand))
+                    .findFirst().orElseGet(null);
+            if(matchingPerson==null) throw new NullPointerException();
+
             List<Person> s = getPeople_data().stream().filter(o -> o.compareTo(matchingPerson) >= 0).collect(Collectors.toList());
             Stack<Person> s1 = new Stack<>();
             s.forEach(s1::push);

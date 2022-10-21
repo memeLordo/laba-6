@@ -13,7 +13,9 @@ public class RemoveID extends Command {
     @Override
     public String go() throws NullPointerException, IOException {
         isPeopleDataEmptyCheck();
-            putPeopleDataUp(getPeople_data().stream().filter(p -> ifPersonInCollection(p, inputCommand)).findFirst().get().getId());
+            putPeopleDataUp(getPeople_data()
+                    .stream().filter((p) -> ifPersonInCollection(p, inputCommand))
+                    .findFirst().orElseGet(null).getId());
             getPeople_data().pop();
             sortPeopleData();
         return "RemoveID completed.";

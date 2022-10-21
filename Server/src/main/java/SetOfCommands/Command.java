@@ -31,17 +31,15 @@ public abstract class Command {
     }
 
     public boolean ifPersonInCollection(@NotNull Person p, String inputText) {
-         boolean b = p.getId().toString().equals(inputText) |
-                p.getName().contains(inputText) |
-                p.getCoordinates().contains(inputText) |
-                p.getHeight().toString().equals(inputText) |
-                p.getWeight().toString().equals(inputText) |
-                p.getCreationDate().toString().equals(inputText) |
-                p.getBirthday().toString().equals(inputText) |
-                p.getEyeColor().toString().equals(inputText) |
-                p.getLocation().contains(inputText);
-         if(!b) throw new RuntimeException("В коллекции нет доступного элемента.");
-        return true;
+        return p.getId().toString().equals(inputText) |
+               p.getName().contains(inputText) |
+               p.getCoordinates().contains(inputText) |
+               p.getHeight().toString().equals(inputText) |
+               p.getWeight().toString().equals(inputText) |
+               p.getCreationDate().toString().equals(inputText) |
+               p.getBirthday().toString().equals(inputText) |
+               p.getEyeColor().toString().equals(inputText) |
+               p.getLocation().contains(inputText);
     }
 
 

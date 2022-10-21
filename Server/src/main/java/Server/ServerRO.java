@@ -70,7 +70,7 @@ public class ServerRO { //Server Request Operator
             ByteBuffer responseBuffer = ByteBuffer.wrap(response.getBytes());
             getChannel().send(responseBuffer, clientAddress);
             //кастомизация
-            response = response.toCharArray()[0] == '\n' ? response.substring(1, 11) : response.substring(0, 11);
+            response =response.length()>11? response.toCharArray()[0] == '\n' ? response.substring(1, 11) : response.substring(0, 11) : response;
 
             System.out.println("'" + response + "...'" + " sent to client at: " + clientAddress);
             response = "";
