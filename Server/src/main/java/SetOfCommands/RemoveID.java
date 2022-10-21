@@ -12,11 +12,10 @@ public class RemoveID extends Command {
 
     @Override
     public String go() throws NullPointerException, IOException {
-        if (CommandsPack.isPeopleDataEmpty()){
+        isPeopleDataEmptyCheck();
             putPeopleDataUp(getPeople_data().stream().filter(p -> ifPersonInCollection(p, inputCommand)).findFirst().get().getId());
             getPeople_data().pop();
             sortPeopleData();
-        }
         return "RemoveID completed.";
     }
 }

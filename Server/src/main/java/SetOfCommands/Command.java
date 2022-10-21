@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import static Server.ServerRO.addResponse;
 
@@ -25,12 +26,12 @@ public abstract class Command {
             if (f.createNewFile())
                 addResponse("Инициализация файла...\n");
         } catch (Exception e) {
-            System.err.println(e);
+            System.err.println(Arrays.toString(e.getStackTrace()));
         }
     }
 
     public boolean ifPersonInCollection(@NotNull Person p, String inputText) {
-        return p.getId().toString().equals(inputText) |
+         boolean b = p.getId().toString().equals(inputText) |
                 p.getName().contains(inputText) |
                 p.getCoordinates().contains(inputText) |
                 p.getHeight().toString().equals(inputText) |
@@ -39,6 +40,8 @@ public abstract class Command {
                 p.getBirthday().toString().equals(inputText) |
                 p.getEyeColor().toString().equals(inputText) |
                 p.getLocation().contains(inputText);
+         if(!b) throw new RuntimeException("В коллекции нет доступного элемента.");
+        return true;
     }
 
 

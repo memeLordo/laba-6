@@ -1,7 +1,5 @@
 package SetOfCommands;
 
-import java.io.IOException;
-
 import static SetOfCommands.CommandsPack.*;
 
 public class Remove extends Command {
@@ -11,12 +9,12 @@ public class Remove extends Command {
     }
 
     @Override
-    public String go() throws NullPointerException, IOException {
-        if (CommandsPack.isPeopleDataEmpty()){
+    public String go() throws NullPointerException {
+        isPeopleDataEmptyCheck();
             putPeopleDataUp(getPeople_data().stream().filter((p) -> ifPersonInCollection(p, inputCommand)).findFirst().get().getId());
             getPeople_data().pop();
             sortPeopleData();
-        }
+
         return "Remove completed.";
     }
 }

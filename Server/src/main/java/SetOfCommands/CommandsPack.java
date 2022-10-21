@@ -55,8 +55,9 @@ public class CommandsPack {
         CommandsPack.people_data = people_data;
     }
 
-    public static boolean isPeopleDataEmpty() {
-        return !people_data.empty();
+    public static void isPeopleDataEmptyCheck() {
+        if (people_data.empty()) throw new NoSuchElementException("В коллекции нет элементов.");
+        //return !people_data.empty();
     }
 
     public static void sortPeopleData() {

@@ -12,10 +12,8 @@ public class Contains extends Command {
 
     @Override
     public String go() throws IOException {
-        if (isPeopleDataEmpty()){
+        isPeopleDataEmptyCheck();
             getPeople_data().stream().filter(inputCommand::equals).forEach(Show::showPerson);
             return coolEdit(Show.getMessage());
-        }
-        else return "В коллекции нет элементов.";
     }
 }

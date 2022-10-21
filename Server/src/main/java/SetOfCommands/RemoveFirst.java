@@ -8,10 +8,9 @@ public class RemoveFirst extends Command {
     }
     @Override
     public String go() throws IOException {
-            if(isPeopleDataEmpty()){
+            isPeopleDataEmptyCheck();
                 putPeopleDataUp(getPeople_data().firstElement().getId());
                 getPeople_data().pop();
-            }
             return "RemoveFirst completed.";
     }
 }

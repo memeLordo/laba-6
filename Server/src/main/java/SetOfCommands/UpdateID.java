@@ -13,12 +13,11 @@ public class UpdateID extends Command {
     @Override
     public String go() throws IOException {
         int inputID = Integer.parseInt(inputCommand);
-        if (CommandsPack.isPeopleDataEmpty()){
+        CommandsPack.isPeopleDataEmptyCheck();
             putPeopleDataUp(inputID);
             getPeople_data().pop();
             getPeople_data().push(PersonSet(inputID));
             sortPeopleData();
-        }
         return "Пользователь изменён";
     }
 }

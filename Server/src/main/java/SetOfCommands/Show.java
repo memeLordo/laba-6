@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
 import static SetOfCommands.CommandsPack.getPeople_data;
-import static SetOfCommands.CommandsPack.isPeopleDataEmpty;
+import static SetOfCommands.CommandsPack.isPeopleDataEmptyCheck;
 
 public class Show extends Command {
     static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy H:mm:ss");
@@ -41,10 +41,8 @@ public class Show extends Command {
 
     @Override
     public String go() throws IOException {
-        if (isPeopleDataEmpty()){
+        isPeopleDataEmptyCheck();
             getPeople_data().forEach(Show::showPerson);
             return coolEdit(message);
-        }
-        else return "В коллекции нет элементов.";
     }
 }

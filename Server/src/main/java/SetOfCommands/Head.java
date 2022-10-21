@@ -12,7 +12,7 @@ public class Head extends Command{
 
     @Override
     public String go() throws IOException {
-        if (CommandsPack.isPeopleDataEmpty())
+        isPeopleDataEmptyCheck();
             Show.showPerson(getPeople_data().firstElement());
         return Show.getMessage();
     }

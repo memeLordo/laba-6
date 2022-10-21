@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.SocketAddress;
 import java.nio.ByteBuffer;
+import java.util.NoSuchElementException;
 
 import static Server.Server.getChannel;
 import static SetOfCommands.CommandsPack.getMap;
@@ -26,13 +27,11 @@ public class ServerRO { //Server Request Operator
         catch(NullPointerException e2){
             e2.printStackTrace();
             addResponse("Неверная команда. Введите 'help' для справки.");
-            try {
-                sendResponse();
-            } catch (IOException e) {
-                System.err.println("lol, u ded");
-            }
-        }
-        finally {
+            sendResponse();
+        } catch (RuntimeException e3){
+            addResponse(e3.getMessage());
+            sendResponse();
+        } finally {
             ServerRO.go();
         }
 
@@ -66,14 +65,18 @@ public class ServerRO { //Server Request Operator
         return request;
     }
 
-    public static void sendResponse() throws IOException {
-        ByteBuffer responseBuffer = ByteBuffer.wrap(response.getBytes());
-        getChannel().send(responseBuffer, clientAddress);
-        //кастомизация
-        response = response.toCharArray()[0]=='\n'?response.substring(1,11):response.substring(0,11);
+    public static void sendResponse() {
+        try {
+            ByteBuffer responseBuffer = ByteBuffer.wrap(response.getBytes());
+            getChannel().send(responseBuffer, clientAddress);
+            //кастомизация
+            response = response.toCharArray()[0] == '\n' ? response.substring(1, 11) : response.substring(0, 11);
 
-        System.out.println("'" + response + "...'" + " sent to client at: " + clientAddress);
-        response = "";
+            System.out.println("'" + response + "...'" + " sent to client at: " + clientAddress);
+            response = "";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
