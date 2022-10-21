@@ -1,7 +1,5 @@
 package SetOfCommands;
 
-import Parameters.Person;
-
 import static SetOfCommands.CommandsPack.*;
 
 public class Remove extends Command {
@@ -20,10 +18,4 @@ public class Remove extends Command {
             sortPeopleData();
         return "Remove completed.";
     }
-//    int checkPerson(){
-//        int personID = ;
-//
-//        if(personID==0)  throw new RuntimeException("В коллекции нет доступного элемента.");
-//        return personID;
-//    }
 }
