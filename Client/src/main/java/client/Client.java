@@ -38,22 +38,22 @@ public class Client {
 
     private static void sendRequest() throws IOException {
 
-        //Создание потока вывода
+        /** Создание потока вывода */
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
         baos.flush();
         oos.flush();
 
-        //Запись пользовательского ввода в поток
+        /** Запись пользовательского ввода в поток */
         oos.writeObject(word);
         oos.flush();
         oos.close();
         byte[] requestArr = baos.toByteArray();
 
 
-        //Упаковка запроса в датаграмму
+        /** Упаковка запроса в датаграмму */
         DatagramPacket dp = new DatagramPacket(requestArr, requestArr.length, serverAddress, 1234);
-        //Отправка на сервер в порт 1234
+        /** Отправка на сервер в порт 1234 */
         ds.send(dp);
         System.out.println(word + " sent to server at: " + serverAddress);
 
@@ -61,12 +61,12 @@ public class Client {
 
     private static void getResponse() throws IOException {
 
-        //Создание пакета для приема ответа от сервера
+        /** Создание пакета для приема ответа от сервера */
         byte[] responseArr = new byte[4096];
         DatagramPacket responsePacket = new DatagramPacket(responseArr, responseArr.length, serverAddress, 0);
         ds.receive(responsePacket);
 
-        //Распаковка полученного ответа от сервера из датаграммы
+        /** Распаковка полученного ответа от сервера из датаграммы */
         String response = new String(responsePacket.getData(), 0, responsePacket.getLength());
         System.out.println("Received from server: " + response);
 

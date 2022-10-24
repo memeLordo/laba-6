@@ -8,7 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Server" />
         <module name="Client" />
+        <module name="charon" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Charon" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>

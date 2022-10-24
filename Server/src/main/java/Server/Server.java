@@ -23,14 +23,10 @@ public class Server {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 
     public static DatagramChannel getChannel() {
         return channel;
     }
-
 
 }

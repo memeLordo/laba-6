@@ -15,12 +15,9 @@
     </properties>
 
     <modules>
-        <module>
-            client
-        </module>
-        <module>
-            server
-        </module>
+        <module>client</module>
+        <module>server</module>
+        <module>charon</module>
     </modules>
     
 </project>

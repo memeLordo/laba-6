@@ -14,12 +14,11 @@ public class Help extends Command{
 
     @Override
     public String go() {
-        getMap().entrySet().stream()
-                            .filter(p->p.getValue().getDefault())
-                .forEachOrdered(p-> addResponse(p.getKey()+" <element>"+" : " + p.getValue().getDescription()+"\n"));
-        getMap().entrySet().stream()
-                .filter(p->!p.getValue().getDefault())
-                .forEachOrdered(p-> addResponse(p.getKey()+" : " + p.getValue().getDescription()+"\n"));
+        getMap().forEach((key, value) -> {
+            if (value.getDefault())
+                addResponse(key + " <element>" + " : " + value.getDescription() + "\n");
+            else addResponse(key + " : " + value.getDescription() + "\n");
+        });
         return coolEdit(getResponse());//косметика
     }
 }
