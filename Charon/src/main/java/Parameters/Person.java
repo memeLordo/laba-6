@@ -1,15 +1,16 @@
 package Parameters;
 
 import Exceptions.EmptyLineException;
-import SetOfCommands.Generator;
 import org.jetbrains.annotations.NotNull;
 
+
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
 import java.util.*;
 
-public class Person implements Comparable<Person> {
+public class Person implements Comparable<Person>, Serializable {
 
 
     private final String name; //Поле не может быть null, Строка не может быть пустой
@@ -20,7 +21,7 @@ public class Person implements Comparable<Person> {
     private final Double weight; //Поле не может быть null, Значение поля должно быть больше 0
     private final Color eyeColor; //Поле не может быть null
     private final Location location; //Поле не может быть null
-    private final Generator generator = new Generator();
+    private transient final Generator generator = new Generator();
     DecimalFormat dF = new DecimalFormat("#.##",new DecimalFormatSymbols(Locale.US));
     private Integer id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
 

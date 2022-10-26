@@ -1,6 +1,8 @@
 package Parameters;
 
-public enum Color {
+import java.io.Serializable;
+
+public enum Color implements Serializable {
     GREEN("Зелёный"),
     YELLOW("Жёлтый"),
     ORANGE("Оранжевый"),

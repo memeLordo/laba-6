@@ -1,6 +1,8 @@
 package Parameters;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
     private int x;
     private Integer y; //Поле не может быть null
     private Float z; //Поле не может быть null

@@ -1,6 +1,8 @@
 package Parameters;
 
-public class Coordinates {
+import java.io.Serializable;
+
+public class Coordinates implements Serializable {
     private long x;
     private long y;
 

@@ -1,4 +1,4 @@
-package SetOfCommands;
+package Parameters;
 
 import Parameters.Color;
 import Parameters.Coordinates;
