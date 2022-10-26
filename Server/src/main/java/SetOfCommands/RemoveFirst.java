@@ -4,7 +4,7 @@ import java.io.IOException;
 import static SetOfCommands.CommandsPack.*;
 public class RemoveFirst extends Command {
     public RemoveFirst() {
-        super("removefirst", "удалить первый элемент из коллекции",false);
+        super("removefirst", "удалить первый элемент из коллекции");
     }
     @Override
     public String go() throws IOException {

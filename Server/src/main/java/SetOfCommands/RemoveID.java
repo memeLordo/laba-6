@@ -1,20 +1,23 @@
 package SetOfCommands;
 
+import ServerOperation.Message;
+
 import java.io.IOException;
 
 import static SetOfCommands.CommandsPack.*;
 
-public class RemoveID extends Command {
+public class RemoveID extends CommandInput {
 
     public RemoveID() {
-        super("removeid", "удалить элемент из коллекции по его id", true);
+        super("removeid", "удалить элемент из коллекции по его id");
     }
 
     @Override
-    public String go() throws NullPointerException, IOException {
+    public String go(Message message) throws NullPointerException {
+        setArgument(message);
         isPeopleDataEmptyCheck();
             putPeopleDataUp(getPeople_data()
-                    .stream().filter((p) -> ifPersonInCollection(p, inputCommand))
+                    .stream().filter((p) -> p.getId().equals(argument))
                     .findFirst().orElseGet(null).getId());
             getPeople_data().pop();
             sortPeopleData();

@@ -9,13 +9,13 @@ import static SetOfCommands.CommandsPack.*;
 public class Help extends Command{
 
     public Help() {
-        super("help", "вывести справку по доступным командам",false);
+        super("help", "вывести справку по доступным командам");
     }
 
     @Override
     public String go() {
         getMap().forEach((key, value) -> {
-            if (value.getDefault())
+            if (value instanceof CommandInput)
                 addResponse(key + " <element>" + " : " + value.getDescription() + "\n");
             else addResponse(key + " : " + value.getDescription() + "\n");
         });

@@ -14,11 +14,15 @@ public class Show extends Command {
     private static String message;
 
     public Show() {
-        super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении", false);
+        super("show", "вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
     }
 
     public static String getMessage() {
         return message;
+    }
+
+    public static void setMessage(String message) {
+        Show.message = message;
     }
 
     public static void showPerson(Person person) {
@@ -36,7 +40,7 @@ public class Show extends Command {
     }
 
     private static void format(Object f) {
-        message += "id: " + new DecimalFormat("000000000").format(f)+"\n";
+        message += "id: " + new DecimalFormat("000000000").format(f) + "\n";
     }
 
     @Override
@@ -44,7 +48,8 @@ public class Show extends Command {
 
         isPeopleDataEmptyCheck();
         message = "===========================\n";
-            getPeople_data().forEach(Show::showPerson);
-            return coolEdit(message);
+        getPeople_data().forEach(Show::showPerson);
+        return coolEdit(message);
     }
+
 }

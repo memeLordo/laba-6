@@ -1,6 +1,7 @@
 package SetOfCommands;
 
 import Parameters.Person;
+import ServerOperation.Message;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,16 +10,17 @@ import java.util.stream.Collectors;
 
 import static SetOfCommands.CommandsPack.*;
 
-public class RemoveLower extends Command {
+public class RemoveLower extends CommandInput {
     public RemoveLower() {
-        super("removelower", "удалить из коллекции все элементы, меньшие, чем у заданного параметра", true);
+        super("removelower", "удалить из коллекции все элементы, меньшие, чем у заданного параметра");
     }
 
     @Override
-    public String go() throws IOException {
+    public String go(Message message) {
+        setArgument(message);
         isPeopleDataEmptyCheck();
             Person matchingPerson = getPeople_data()
-                    .stream().filter((p) -> ifPersonInCollection(p, inputCommand))
+                    .stream().filter((p) -> ifPersonInCollection(p, (String) argument))
                     .findFirst().orElseGet(null);
             if(matchingPerson==null) throw new NullPointerException();
 

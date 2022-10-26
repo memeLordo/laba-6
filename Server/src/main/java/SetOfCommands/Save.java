@@ -1,6 +1,7 @@
 package SetOfCommands;
 
 
+import ServerOperation.Message;
 import xmlFiles.xmlWriter;
 
 import java.nio.file.NoSuchFileException;
@@ -8,22 +9,22 @@ import java.nio.file.NoSuchFileException;
 import static SetOfCommands.CommandsPack.sortPeopleData;
 import static xmlFiles.xmlData.setPath;
 
-public class Save extends Command {
+public class Save extends CommandInput {
     public Save() {
-        super("save", "сохранить коллекцию в файл",false);
+        super("save", "сохранить коллекцию в файл");
     }
 
 
 
     @Override
-    public String go() {
+    public String go(Message message) {
 
-        CreateFile(setPath());
+        CreateFile(setPath((String) message.getArgument()));
         sortPeopleData();
         try {
             xmlWriter.go();
         } catch (NoSuchFileException e) {
-            return "Something goes wrong";
+            throw new RuntimeException("File isn't exist");
         }
         return "Data saved.";
     }

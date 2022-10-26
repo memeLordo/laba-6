@@ -1,18 +1,20 @@
 package SetOfCommands;
 
+import ServerOperation.Message;
+
 import java.io.IOException;
 
 import static Parameters.Person.PersonSet;
 import static SetOfCommands.CommandsPack.*;
 
-public class UpdateID extends Command {
+public class UpdateID extends CommandInput {
     public UpdateID() {
-        super("update", "description", true);
+        super("update", "description");
     }
 
     @Override
-    public String go() throws IOException {
-        int inputID = Integer.parseInt(inputCommand);
+    public String go(Message message) {
+        int inputID = (int)message.getArgument();
         CommandsPack.isPeopleDataEmptyCheck();
         putPeopleDataUp(inputID);
         getPeople_data().pop();

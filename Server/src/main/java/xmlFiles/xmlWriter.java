@@ -18,7 +18,6 @@ public class xmlWriter extends xmlData {
         DecimalFormat dF = new DecimalFormat("#.##", new DecimalFormatSymbols(Locale.US));
         String[] type = InfoData.getColumns();
         String input = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-        // TODO при повторном load очищает массив
         Stack<Person> s1 = getPeople_data();
         Stack<Person> s2 = new Stack<>();
         input = input + "<set>\n";

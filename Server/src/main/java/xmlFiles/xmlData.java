@@ -23,18 +23,9 @@ public abstract class xmlData {
         return path;
     }
 
-    public static String setPath() {
-        try {
-            addResponse("Введите название файла: ");
-            sendResponse();
-            path = getRequest(false);
-            if (path.equals("")) throw new EmptyLineException("Имя файла");
-        } catch (EmptyLineException e1) {
-            addResponse(e1.getMessage());
-            setPath();
-        } catch (IOException | ClassNotFoundException e2) {
-            System.err.println("lol, server stops working again");
-        }
+    public static String setPath(String pathNew) {
+        path = pathNew;
+        if (path.equals("")) throw new EmptyLineException("Имя файла");
         path = directory + "/" + path + ".xml";
         return path; //xml-files with directory
 //        return path + ".xml"; //xml-files without directory
@@ -62,7 +53,6 @@ public abstract class xmlData {
                 line.append(fr.nextLine()).append("\n");
             } while (fr.hasNext());
         } catch (NoSuchFileException e1) {
-//            TODO создать обработку
             CreateFile(path);
         } catch (NoSuchElementException ignored) {
         }

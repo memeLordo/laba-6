@@ -2,7 +2,7 @@ package SetOfCommands;
 
 import Comparators.PersonIdComparator;
 import Parameters.Person;
-import org.jetbrains.annotations.NotNull;
+import ServerOperation.Message;
 import xmlFiles.xmlReader;
 
 import java.io.IOException;
@@ -11,8 +11,9 @@ import java.util.*;
 public class CommandsPack {
     private static final Map<String, Command> map = new HashMap<>();
     private static final List<String> defCommandSet = new LinkedList<>();
-    public static String inputCommand = null;
+    //public static String inputCommand = null;
     private static Stack<Person> people_data;
+
     static {
         try {
             people_data = xmlReader.go();
@@ -23,6 +24,7 @@ public class CommandsPack {
     }
 
     public static void go() {
+
         setCommand(new Help());
         setCommand(new InfoData());
         setCommand(new Show());
@@ -41,6 +43,7 @@ public class CommandsPack {
         setCommand(new RemoveLower());
         setCommand(new MaxElement());
         //type();
+
     }
 
     public static Map<String, Command> getMap() {
@@ -77,21 +80,7 @@ public class CommandsPack {
         people_data = s2;
     }
 
-    public static String mapFind(@NotNull String textLine) {
 
-        String[] setOfCommands = textLine.split(" ");
-        try {
-            clearInputCommand();
-            inputCommand = setOfCommands[1];
-
-        } catch (NullPointerException e1) {
-            e1.printStackTrace();
-        }
-        catch (ArrayIndexOutOfBoundsException | NumberFormatException ignored) {}
-        finally {
-            return setOfCommands[0];
-        }
-    }
 //    private static void type() {
 //        Scanner console = new Scanner(System.in);
 //        try {
@@ -106,12 +95,27 @@ public class CommandsPack {
 //            type();
 //        }
 //    }
-    private static void setCommand(Command command) {
+
+    private static void setCommand(CommandInput command) {
         map.put(command.getName(), command);
-        if (command.getDefault()) defCommandSet.add(command.getName());
+        //if (command.getDefault()) defCommandSet.add(command.getName());
     }
 
-    public static void clearInputCommand() {
-        inputCommand = "";
+    private static void setCommand(Command command) {
+        map.put(command.getName(), command);
+        //if (command.getDefault()) defCommandSet.add(command.getName());
     }
+
+    public static String startCommand(Message message) throws IOException {
+        if(map.get(message.getCommand()) instanceof Argumentable)
+        {
+            return ((Argumentable) map.get(message.getCommand())).go(message);
+        }
+        else return map.get(message.getCommand()).go();
+    }
+//    public static String startCommand(Argumentable command, Message message) throws IOException {
+//        return command.go(message);
+//    }
+
+
 }

@@ -1,23 +1,25 @@
 package SetOfCommands;
 
 import Parameters.Person;
+import ServerOperation.Message;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Arrays;
 
 import static Server.ServerRO.addResponse;
 
-public abstract class Command {
+public abstract class Command implements Serializable {
     private final String name;
     private final String description;
-    private final boolean isDefault;
-
-    public Command(String name, String description, boolean isDefault) {
+    //private final boolean isDefault;
+//TODO переписать под интерфейсы Argumentable....
+    public Command(String name, String description) {
         this.name = name;
         this.description = description;
-        this.isDefault = isDefault;
+//        this.isDefault = isDefault;
     }
 
     public static void CreateFile(String name) {
@@ -43,10 +45,9 @@ public abstract class Command {
     }
 
 
-
-    public boolean getDefault() {
-        return isDefault;
-    }
+   // public boolean getDefault() {
+//        return isDefault;
+//    }
 
     public String getName() {
         return name;
@@ -56,7 +57,18 @@ public abstract class Command {
         return description;
     }
 
-    public abstract String go() throws IOException;
+    public String go()throws IOException{
+        return null;
+    }
+//    public String go(int num){
+//        return null;
+//    }
+//    public String go(String text){
+//        return null;
+//    }
+//    public String go(Message message){
+//        return null;
+//    }
 
     public String coolEdit(String line){
         if (line.toCharArray()[0] == '\n') return line.substring(1);

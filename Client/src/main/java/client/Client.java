@@ -1,12 +1,19 @@
 package client;
 
+import Parameters.Person;
+import ServerOperation.Message;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.util.Objects;
 import java.util.Scanner;
+
+import static Parameters.Person.PersonSet;
+import static ServerOperation.Message.mapFind;
 
 
 public class Client {
@@ -16,7 +23,8 @@ public class Client {
     private static final int clientPort = 4321;
     private static DatagramSocket ds;
     private static InetAddress serverAddress;
-    private static String word;
+    private static Message inputCommand;
+    private static Person inputPerson;
 
     public static void main(String[] args) throws Exception {
         serverAddress = InetAddress.getByName(clientName);
@@ -33,7 +41,12 @@ public class Client {
 
     private static void processInput() {
         System.out.print("~ ");
-        word = scanner.nextLine();
+        inputCommand = mapFind(scanner.nextLine());
+        if(Objects.equals(inputCommand.getCommand(), "add")) {
+            if (inputCommand.getArgument().equals("def")) inputPerson = new Person();
+            else inputPerson = PersonSet();
+        }
+
     }
 
     private static void sendRequest() throws IOException {
@@ -45,7 +58,11 @@ public class Client {
         oos.flush();
 
         /** Запись пользовательского ввода в поток */
-        oos.writeObject(word);
+        if ("add".equals(inputCommand.getCommand())){
+            oos.writeObject(new Message<>(inputCommand.getCommand(), inputPerson));
+        } else {
+            oos.writeObject(new Message<>(inputCommand.getCommand(), (String) inputCommand.getArgument()));
+        }
         oos.flush();
         oos.close();
         byte[] requestArr = baos.toByteArray();
@@ -55,7 +72,7 @@ public class Client {
         DatagramPacket dp = new DatagramPacket(requestArr, requestArr.length, serverAddress, 1234);
         /** Отправка на сервер в порт 1234 */
         ds.send(dp);
-        System.out.println(word + " sent to server at: " + serverAddress);
+        System.out.println(inputCommand + " sent to server at: " + serverAddress);
 
     }
 
@@ -71,5 +88,7 @@ public class Client {
         System.out.println("Received from server: " + response);
 
     }
+
+
 
 }
