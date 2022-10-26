@@ -45,7 +45,7 @@ public class ServerRO { //Server Request Operator
         return response;
     }
 
-    public static String getRequest() throws IOException, ClassNotFoundException {
+    public static void getRequest() throws IOException, ClassNotFoundException {
         /** Создание байтбуффера для приема запроса от клиента */
         ByteBuffer requestBuffer = ByteBuffer.allocate(4096);
         /** Получение датаграммы в байтбуффер и сохраняем адрес клиента в remoteAdd */
@@ -65,8 +65,7 @@ public class ServerRO { //Server Request Operator
         if(getMap().containsKey(command))
         {
             response = startCommand(requestObject);
-        } else response = command;
-        return command;
+        } else throw new NullPointerException();
     }
 
     public static void sendResponse() {

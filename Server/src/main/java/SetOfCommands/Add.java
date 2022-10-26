@@ -22,12 +22,6 @@ public class Add extends CommandInput {
             getPeople_data().push((Person) message.getArgument());
             sortPeopleData();
             return "New user added.";
-//
-//            Person bebraPerson = (Person) message.getArgument();
-//            getPeople_data().push(bebraPerson);
-//            sortPeopleData();
-//            return "New user added.";
-
     }
 
 
